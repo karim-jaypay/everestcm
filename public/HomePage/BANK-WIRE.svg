@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96.16" height="20.925" viewBox="0 0 96.16 20.925">
+  <g id="BANK_WIRE" data-name="BANK WIRE" transform="translate(-0.217 -8.424)">
+    <text id="Bank_Wire-2" data-name="Bank Wire" transform="translate(33.377 23.886)" fill="#909090" font-size="14" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Bank Wire</tspan></text>
+    <g id="Group_18746" data-name="Group 18746" transform="translate(0.217 8.424)">
+      <path id="Path_98720" data-name="Path 98720" d="M54.318,376.723h-17.8v1.04h-.809v1.5H55.07v-1.5h-.751Z" transform="translate(-35.706 -358.341)" fill="#909090"/>
+      <path id="Path_98721" data-name="Path 98721" d="M45.773,113.187,36.12,117.7v1.5h.78v1.04H54.7V119.2h.78v-1.5Z" transform="translate(-36.091 -113.187)" fill="#909090"/>
+      <path id="Path_98722" data-name="Path 98722" d="M58.358,231.963V233.7h4.277v-1.734h-.751V224.39h.751v-.983H58.358v.983h.751v7.572Z" transform="translate(-56.778 -215.72)" fill="#909090"/>
+      <path id="Path_98723" data-name="Path 98723" d="M143.855,231.963V233.7h4.277v-1.734h-.751V224.39h.751v-.983h-4.277v.983h.751v7.572Z" transform="translate(-136.312 -215.72)" fill="#909090"/>
+      <path id="Path_98724" data-name="Path 98724" d="M230.043,231.963V233.7h4.277v-1.734h-.751V224.39h.751v-.983h-4.277v.983h.751v7.572Z" transform="translate(-216.488 -215.72)" fill="#909090"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,143 @@
+.slide_first_bg {
+    background: url('../../public/HomeSlider/Mountain6.svg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%
+}
+
+.slide_second_bg {
+    background: url('../../public/HomeSlider/slider-2.svg') no-repeat;
+    background-position: right bottom;
+    background-size: auto;
+}
+
+.slide_third_bg {
+    background: url('../../public/HomeSlider/slide-3.png') no-repeat;
+    background-size: contain;
+    background-position: bottom
+}
+
+
+.slide_pad {
+    padding: 10rem 0;
+    margin: 0 auto;
+
+    .slider_second_phone {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .slider_second_phone > span, .slider_second_phone > span > img {
+        position: relative !important;
+        width: 70% !important;
+        height: 70% !important;
+        margin: 0 auto !important; 
+    }
+
+    .slider_div {
+        display: flex;
+    }
+    .slider_title {
+        font-size: clamp(50px,5vw,25px);
+        margin-bottom: 5.5rem
+    }
+    .slider_subtitle {
+        font-size: clamp(22px,5vw,16px);
+        margin-bottom: 7rem
+    }
+}
+
+
+.slider_cards {
+    display: flex;
+    flex-wrap: wrap;
+
+    .card_bg {
+        width: 43%;
+        height: 190px;
+        padding: 13px 20px;
+        border: 1px solid white;
+        border-radius: 15px;
+        backdrop-filter: blur(5px);
+        margin-left: auto;
+        margin-bottom: 20px;
+
+        .first_row {
+            display: flex;
+            border-bottom: 1px solid white;
+
+            .arrow_down {
+                width: 0; 
+                height: 0; 
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-top: 5px solid #f00;
+                margin-top: 11px;
+                margin-right: 5px
+            }
+        }
+        .second_row {
+            padding: 14px 0px;
+            text-align: center;
+            .bid {
+                margin: 0 auto;
+                .buy {
+                    text-decoration: none;
+                    background-color: #60BB7D;
+                    color: white;
+                    font-size: 12px;
+                    padding: 2px 14px;
+                    border-radius: 15px;
+                }
+
+                .sell {
+                    text-decoration: none;
+                    background-color: #f00;
+                    color: white;
+                    font-size: 12px;
+                    padding: 2px 14px;
+                    border-radius: 15px;
+                }
+            }
+        }
+    }
+}
+
+.card_mobile {
+    display: none;
+}
+
+
+@media screen and (max-width: 992px) {
+    .slider_div {
+        display: block !important;
+    }
+    .card_mobile {
+        display: block;
+    }
+
+    .card_desktop {
+        display: none;
+    }
+    .card_mobile {
+        display: flex !important;
+        margin-bottom: 3rem;
+    }
+
+    .slide_pad {
+        padding: 6rem 0rem;
+        .slider_div {
+            text-align: center;
+            
+            .card_bg {
+                margin: 0 auto 20px auto;
+            }
+
+            .slider_subtitle {
+                margin-bottom: 3rem
+            }
+        }
+    }
+
+    
+    
+}

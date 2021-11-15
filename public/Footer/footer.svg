@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="303" viewBox="0 0 1920 303">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_15325" data-name="Rectangle 15325" width="1920" height="303" transform="translate(-0.4 130)" fill="none" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#23a5d6"/>
+      <stop offset="1" stop-color="#60605f" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_42" data-name="Group 42" transform="translate(0.4 -130)" clip-path="url(#clip-path)">
+    <g id="Graphic" transform="translate(-202.765 131.135)" opacity="0.8">
+      <path id="Subtraction_4" data-name="Subtraction 4" d="M2122.365,267.513v0H0l.114-.022c3.549-.579,35.97-5.806,80.7-10.893,27.86-3.169,55.158-5.693,81.135-7.5,32.47-2.263,62.957-3.411,90.613-3.411,5.127,0,10.234.04,15.177.118,3.341.053,6.636.08,9.793.08,13.75,0,25.579-.487,36.163-1.49a188.22,188.22,0,0,0,25.225-3.947c14-3.275,22.98-7.57,32.491-12.117,18.173-8.688,36.965-17.672,93.3-19.03,6.328-.16,12.375-.241,17.973-.241,23.958,0,39.106,1.412,58.284,3.2,14.805,1.38,31.584,2.943,56.183,4.168,28.463,1.417,62.088,2.106,102.8,2.106,91.839,0,122.612-22.7,149.762-42.73,10.663-7.866,20.733-15.3,33.734-20.83a108.244,108.244,0,0,1,22.111-6.679,159.416,159.416,0,0,1,29.052-2.675c.87-.008,1.752-.012,2.619-.012,48.313,0,81.014,11.856,115.637,24.407,18.18,6.591,36.978,13.406,58.734,18.707a334.312,334.312,0,0,0,35.222,6.626,372.879,372.879,0,0,0,41.671,3.144c.9.02,1.825.029,2.748.029a159.532,159.532,0,0,0,24.6-2.055,242.178,242.178,0,0,0,26.37-5.787c17.024-4.681,35.6-11.389,56.786-20.507,39.235-16.885,80.779-39.25,120.956-60.88,72.483-39.022,140.942-75.877,186.476-75.877a181.556,181.556,0,0,1,34.656,3.4,242.2,242.2,0,0,1,33.124,8.992c21.709,7.455,43.271,17.648,64.123,27.505,21.96,10.381,44.663,21.113,68.275,29.1a264.725,264.725,0,0,0,36.411,9.668,209.138,209.138,0,0,0,38.859,3.679c49.643-.271,75.193-25.994,102.242-53.227,15.057-15.159,30.626-30.833,51.029-42.664a139.484,139.484,0,0,1,34.819-14.368,160.821,160.821,0,0,1,21.2-4.055A198.028,198.028,0,0,1,2115.435,0c2.163,0,4.291.03,6.506.093.151.093.288.185.425.282V267.512Z" transform="translate(0 0.535)" opacity="0.12" fill="url(#linear-gradient)"/>
+      <path id="Rectangle" d="M0,267.956s142.552-23.69,267.741-21.705,79.88-33.672,196.972-36.5c79.547-2.012,71.54,9.229,235.234,9.229s133.252-72,234.66-72.894,134.72,50.275,253.883,52.859S1509.423,33.917,1606.429,33.917c93.126,0,164.255,75.575,264.4,81.7,2.708.171,6.87.3,11.083.3C1987.247,115.921,1976.962,0,2122.365,0" transform="translate(0 0.345)" fill="none" stroke="#23a5d6" stroke-miterlimit="10" stroke-width="2"/>
+      <g id="Group_19872" data-name="Group 19872" transform="translate(202.365 -7851.135)">
+        <g id="Ellipse_560" data-name="Ellipse 560" transform="translate(204 8058)" fill="#fff" stroke="#23a5d6" stroke-width="2">
+          <circle cx="8.5" cy="8.5" r="8.5" stroke="none"/>
+          <circle cx="8.5" cy="8.5" r="7.5" fill="none"/>
+        </g>
+        <g id="Ellipse_561" data-name="Ellipse 561" transform="translate(689 7993)" fill="#fff" stroke="#23a5d6" stroke-width="2">
+          <circle cx="8.5" cy="8.5" r="8.5" stroke="none"/>
+          <circle cx="8.5" cy="8.5" r="7.5" fill="none"/>
+        </g>
+        <g id="Ellipse_562" data-name="Ellipse 562" transform="translate(1177 7971)" fill="#fff" stroke="#23a5d6" stroke-width="2">
+          <circle cx="8.5" cy="8.5" r="8.5" stroke="none"/>
+          <circle cx="8.5" cy="8.5" r="7.5" fill="none"/>
+        </g>
+        <g id="Ellipse_563" data-name="Ellipse 563" transform="translate(1422 7879)" fill="#fff" stroke="#23a5d6" stroke-width="2">
+          <circle cx="8.5" cy="8.5" r="8.5" stroke="none"/>
+          <circle cx="8.5" cy="8.5" r="7.5" fill="none"/>
+        </g>
+        <g id="Ellipse_564" data-name="Ellipse 564" transform="translate(1663 7957)" fill="#fff" stroke="#23a5d6" stroke-width="2">
+          <circle cx="8.5" cy="8.5" r="8.5" stroke="none"/>
+          <circle cx="8.5" cy="8.5" r="7.5" fill="none"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
