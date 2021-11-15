@@ -227,7 +227,7 @@ export default function Home() {
       <section>
         <div className="container">
           <div className={styles.fourth_title}>
-            EverestCM's Range of
+            EverestCM&apos;s Range of
           </div>
           <div className="text-center w-75 mx-auto">You’re unique, and your trading habits differ from others, which is why we offer 3 different award-winning trading platforms. Each one leverages our outstanding low pricing, ultra-fast execution, and access to our deep liquidity pools.</div>
           <div className={styles.fourth_image}>

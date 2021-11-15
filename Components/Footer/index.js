@@ -60,7 +60,7 @@ function Footer() {
                             Anti-Money Laundering
                         </div>
                         <div className={styles.subtitle}>
-                            Segregation of Clients' Funds
+                            Segregation of Clients&apos; Funds
                         </div>
 
                     </div>
