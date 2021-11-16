@@ -212,7 +212,7 @@ function HomeSlider() {
                 <div className={styles.slide_second_bg}>
                     <div className={`${styles.slide_pad} container `}>
                         <div className="d-flex">
-                            <div className="col-lg-6">
+                            <div className="col-lg-6 col-12">
                                 <div className={styles.slider_title}>
                                     Who needs <br/> desktops when <br/><span className={` main_gradient_two`}>you can trade <br/></span> <span className="main_gradient_two">on the go?</span>
                                 </div>

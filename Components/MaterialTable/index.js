@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, { useState } from 'react';
+import Image from 'next/image'
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -31,10 +32,67 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 
-export default function CustomizedTables(props) {
 
-  const { rows } = props
+
+
+export default function CustomizedTables(props) {
+  
+  const { allrows } = props
+
+  const [rows, setRows] = useState(allrows)
+
+  const [searched, setSearched] = useState('')
+
+  const requestSearch = (e) => {
+    const searched = e.target.value
+    setSearched(e.target.value)
+    const filteredRows = allrows.filter((row) => {
+      return row.name.toLowerCase().includes(searched.toLowerCase());
+    });
+    setRows(filteredRows);
+  };
+
+
   return (
+
+  <div className={styles.table_div}>
+    <div className={` ${styles.table_search_div} ${styles.table_search_mobile}`}>
+      <div className={styles.table_search_icon}>
+      <Image alt="search" src="/search.svg" width={13} height={13} />
+      </div>
+      <input className={styles.table_search_input} type='text' placeholder="Search Instruments" value={searched} onChange={(e) => requestSearch(e) } />
+    </div>
+
+    <div className={styles.table_filters_div}>
+      <div className="d-flex">
+          <div className={styles.table_titles_div}>
+            <a className={`${styles.table_titles} ${styles.table_title_active}`}>Forex</a>
+            <a className={styles.table_titles}>Metals</a>
+            <a className={styles.table_titles}>Shares</a>
+            <a className={styles.table_titles}>Commodities</a>
+            <a className={styles.table_titles}>Cryptos</a>
+            <a className={styles.table_titles}>Energies</a>
+            <a className={styles.table_titles}>Indices</a>
+          </div>
+
+          <div className={` ${styles.table_search_div} ${styles.table_search_desktop}`}>
+            <div className={styles.table_search_icon}>
+            <Image alt="search" src="/search.svg" width={13} height={13} />
+            </div>
+            <input className={styles.table_search_input} type='text' placeholder="Search Instruments" value={searched} onChange={(e) => requestSearch(e) } />
+          </div>
+          
+      </div>
+      
+      <div className={styles.table_filters}>
+          <a className={`${styles.table_filter} ${styles.table_filter_active}`}>Majors</a>
+          <a className={styles.table_filter}>Minors</a>
+          <a className={styles.table_filter}>Exotics</a>
+          <a className={styles.table_filter}>All</a>
+      </div>
+
+      
+    </div>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
@@ -61,5 +119,6 @@ export default function CustomizedTables(props) {
         </TableBody>
       </Table>
     </TableContainer>
+  </div>
   );
 }

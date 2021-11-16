@@ -17,6 +17,20 @@ $main-color: #23A5D6;
   margin-bottom: 44px
 }
 
+.number_green, .number_red {
+  padding: 7px 14px;
+  border-radius: 5px;
+}
+
+.number_red {
+  color: #C60021;
+  background: #F1D3D8;
+}
+.number_green {
+  background: #D7EEDE;
+  color: #60BB7D
+}
+
 .border_gradient {
   background-image: linear-gradient(#23A5D6, #60BB7D);
   position: relative;
@@ -38,109 +52,23 @@ $main-color: #23A5D6;
   z-index: -1;
 }
 
+.title_pad {
+  padding: 115px 90px 0 0;
 
-
-  .title_pad {
-    padding: 115px 90px 0 0;
-
-    .title {
-      font-size: clamp(22px,5vw,50px);
-      margin-bottom: 115px
-    }
+  .title {
+    font-size: clamp(32px,5vw,50px);
+    margin-bottom: 115px
   }
-  .table_div {
-    box-shadow: 0px 1px 4px 0px rgb(0, 0, 0, 0.2);
-    border-radius: 10px;
-
-    .table_filters_div {
-      padding: 25px 25px;
-      
-      .table_titles_div {
-        display: flex;
-        flex-wrap: wrap;
-        width: 80%;
-        .table_titles {
-          
-          color: black;
-          text-decoration: none;
-          padding: 3px 0;
-          min-width: 102px;
-          text-align: center;
-          border-radius: 5px;
-          cursor: pointer;
-          box-shadow: 0px 1px 4px 0px rgb(0, 0, 0, 0.2);
-          margin-right: 10px;
-          margin-bottom: 12px;
-        }
-        .table_title_active {
-          background: $main-color;
-          color: white;
-        }
-      }
-      .table_filters {
-        display: flex;
-        overflow: auto;
-        width: 90%;
-        margin-top: 25px;
-        margin-bottom: 15px;
-
-        .table_filter {
-          color: grey;
-          border: 1px solid grey;
-          text-decoration: none;
-          padding: 3px 31px;
-          border-radius: 15px;
-          min-width: 112px;
-          text-align: center;
-          cursor: pointer;
-          margin-right: 20px;
-        }
-        .table_filter_active {
-          border: 1px solid $main-color;
-          color: $main-color;
-        }
-      }
-    }
-
-    .table_search_div {
-      
-      height: 30px;
-      border-radius: 5px;
-      padding: 4px 0;
-      box-shadow: 0px 1px 4px 0px rgb(0, 0, 0, 0.2);
-      .table_search_icon {
-        width: 13px;
-        margin: auto 5px auto 5px;
-      }
-      .table_search_input {
-        border: 0;
-        max-width: 160px;
-      }
-      .table_search_input:focus {
-        outline: 0
-      }
-    }
-    .number_green, .number_red {
-        padding: 7px 14px;
-        border-radius: 5px;
-    }
-    .number_red {
-        color: #C60021;
-        background: #F1D3D8;
-    }
-    .number_green {
-        background: #D7EEDE;
-        color: #60BB7D
-    }
 }
+  
 
 .third_title {
-  font-size: clamp(25px,5vw,50px);
+  font-size: clamp(35px,5vw,50px);
   text-align: center;
   margin-bottom: 80px
 }
 .third_subtitle {
-  font-size: clamp(20px,5vw,45px);
+  font-size: clamp(30px,5vw,45px);
 } 
 
 .third_cards_div {
@@ -157,15 +85,20 @@ $main-color: #23A5D6;
       border-radius: 10px;
     }
     .card_content {
-      width: 300px
+      width: 300px;
+      margin: 0 auto;
     }
     &.card_blank {
       visibility: hidden;
+      min-width: 300px;
     }
     
     &.third_card_marg {
-    margin-right: auto;
+    margin: 0 auto;
     }
+    &.third_card_marg_mob {
+      margin: 0 auto;
+      }
     .third_card_content {
       padding: 62px 91px 62px 24px;
       .third_card_icon {
@@ -179,7 +112,7 @@ $main-color: #23A5D6;
 }
 
 .fourth_title {
-  font-size: clamp(20px,5vw,45px);
+  font-size: clamp(30px,5vw,45px);
   text-align: center;
   margin-bottom: 80px
 }
@@ -204,10 +137,10 @@ $main-color: #23A5D6;
 
 .fifth_title {
   text-align: center;
-  font-size: clamp(20px, 5vw, 40px);
+  font-size: clamp(30px, 5vw, 40px);
   margin-bottom: 15px;
   .fifth_sub {
-    font-size: clamp(25px, 5vw, 50px);
+    font-size: clamp(35px, 5vw, 50px);
     font-weight: bold;
   }
 }
@@ -220,7 +153,7 @@ $main-color: #23A5D6;
 .fifth_left_pad {
   padding: 120px 40px 10px 0;
   .fifth_left_title {
-    font-size: clamp(20px, 5vw, 40px);
+    font-size: clamp(30px, 5vw, 40px);
     margin-bottom: 60px;
   }
 }
@@ -232,10 +165,10 @@ $main-color: #23A5D6;
 
   .sixth_title_grad {
     font-weight: 900;
-    font-size: clamp(27px, 5vw, 50px)
+    font-size: clamp(37px, 5vw, 50px)
   }
   .sixth_left_title {
-    font-size: clamp(25px, 5vw, 45px);
+    font-size: clamp(35px, 5vw, 45px);
     margin-bottom: 60px;
   }
 }
@@ -277,10 +210,10 @@ $main-color: #23A5D6;
     .seventh_content {
       padding: 160px 110px 110px 110px;
       .seventh_title {
-        font-size: clamp(20px, 5vw, 40px);
+        font-size: clamp(30px, 5vw, 40px);
         margin-bottom: 100px;
         .seventh_sub {
-          font-size: clamp(25px, 5vw, 55px);
+          font-size: clamp(35px, 5vw, 55px);
         }
       }
       
@@ -289,12 +222,6 @@ $main-color: #23A5D6;
       height: 100%;
       display: flex;
       align-items: flex-end;
-     
-      .seventh_image > span, .seventh_image > span > img {
-        position: relative !important;
-        width: 70% !important;
-        height: 70% !important;
-      }
     }
   }
 }
@@ -307,21 +234,14 @@ $main-color: #23A5D6;
   .account {
     margin-right: 70px;
   }
-  .account > span, .account > span > img {
-    position: relative !important;
-    width: 100% !important;
-    height: 100% !important;
-  }
 }
 
 .desc_mobile {
   display: none;
 }
-.table_search_mobile {
+
+.fifth_image_mobile {
   display: none;
-}
-.table_search_desktop {
-  display: flex;
 }
 
 @media screen and (max-width: 1200px) {
@@ -346,24 +266,111 @@ $main-color: #23A5D6;
       text-align: center;
     }
   }
-  .table_filters {
-    width: 100% !important;
-    .table_filter {
-      margin-top: 10px;
+  
+}
+
+@media screen and (max-width: 991px) {
+  .fourth_cards {
+    flex-wrap: wrap;
+    justify-content: center;
+    .fourth_card {
+      margin-right: 0;
+      margin-bottom: 20px;
     }
   }
-  .table_titles_div {
-    width: 100% !important
+  .fifth_desc {
+    width: 100%;
+    margin-bottom: 30px
   }
-  .table_search_desktop {
-    display: none !important;
+  .fifth_image_mobile {
+    display: block;
   }
-  .table_search_mobile {
+  .fifth_image_desk {
+    display: none;
+  }
+  .fifth_left_pad {
+    padding-top: 0;
+    padding-right: 0;
+    text-align: center;
+  }
+  .input_mobile {
     display: flex;
-    margin: 0 15px 15px auto;
-    width: 180px;
-    position: relative;
-    top: 15px;
+    justify-content: center;
+  }
+
+  .sixth_sect {
+    margin-bottom: 50px
+  }
+
+  .chart_bg {
+    display: block;
+
+    .sixth_left_title, .sixth_left_desc {
+      margin-bottom: 30px
+    }
+  }
+
+  .seventh_bg {
+    display: block !important;
+    .image_div {
+      justify-content: center;
+    }
+    .seventh_content {
+      padding: 0 0 30px 0 !important;
+
+      .seventh_title {
+        margin-bottom: 30px !important;
+        text-align: center;
+      }
+      .seventh_desc {
+        text-align: center;
+      }
+    }
 
   }
+
+  .account {
+    margin-right: 27px !important
+  }
 }
+
+
+@media screen and (max-width: 767px) {
+  .card_blank {
+    display: none;
+  }
+  .fourth_title {
+    margin-bottom: 30px
+  }
+  .fourth_desc {
+    width: 100% !important;
+    margin-bottom: 30px
+  }
+  .fourth_image {
+    margin-bottom: 30px
+  }
+
+  .chart_bg {
+    background-position: center;
+    .sixth_card {
+      margin-right: auto !important;
+      margin-left: auto;
+    }
+    .sixth_left_desc {
+      margin-bottom: 40px !important;
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .accounts {
+    display: block;
+    text-align: center;
+    .account {
+      margin-bottom: 20px;
+    }
+  }
+  
+}
+

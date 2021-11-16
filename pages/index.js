@@ -10,8 +10,6 @@ import styles from '../styles/Home/Home.module.scss'
 
 export default function Home() {
 
-  const [searched, setSearched] = useState('')
-
   const [number, setNumber] = useState('')
 
 
@@ -33,20 +31,6 @@ export default function Home() {
   ];
 
   const [rows, setRows] = useState(originalrows)
-
-  const requestSearch = (e) => {
-    const searched = e.target.value
-    setSearched(e.target.value)
-    const filteredRows = originalrows.filter((row) => {
-      return row.name.toLowerCase().includes(searched.toLowerCase());
-    });
-    setRows(filteredRows);
-  };
-
-  const cancelSearch = () => {
-    setSearched("");
-    requestSearch(searched);
-  };
   
   return (
       <div>
@@ -74,47 +58,7 @@ export default function Home() {
             </div>
           </div>
           <div className={`col-lg-7 col-12 ${styles.second_div_content}`}>
-            <div className={styles.table_div}>
-
-            <div className={` ${styles.table_search_div} ${styles.table_search_mobile}`}>
-              <div className={styles.table_search_icon}>
-              <Image alt="search" src="/search.svg" width={13} height={13} />
-              </div>
-              <input className={styles.table_search_input} type='text' placeholder="Search Instruments" value={searched} onChange={(e) => requestSearch(e) } />
-            </div>
-
-              <div className={styles.table_filters_div}>
-                <div className="d-flex">
-                    <div className={styles.table_titles_div}>
-                      <a className={`${styles.table_titles} ${styles.table_title_active}`}>Forex</a>
-                      <a className={styles.table_titles}>Metals</a>
-                      <a className={styles.table_titles}>Shares</a>
-                      <a className={styles.table_titles}>Commodities</a>
-                      <a className={styles.table_titles}>Cryptos</a>
-                      <a className={styles.table_titles}>Energies</a>
-                      <a className={styles.table_titles}>Indices</a>
-                    </div>
-
-                    <div className={` ${styles.table_search_div} ${styles.table_search_desktop}`}>
-                      <div className={styles.table_search_icon}>
-                      <Image alt="search" src="/search.svg" width={13} height={13} />
-                      </div>
-                      <input className={styles.table_search_input} type='text' placeholder="Search Instruments" value={searched} onChange={(e) => requestSearch(e) } />
-                    </div>
-                    
-                </div>
-                
-                <div className={styles.table_filters}>
-                    <a className={`${styles.table_filter} ${styles.table_filter_active}`}>Majors</a>
-                    <a className={styles.table_filter}>Minors</a>
-                    <a className={styles.table_filter}>Exotics</a>
-                    <a className={styles.table_filter}>All</a>
-                </div>
-
-                
-              </div>
-              <CustomizedTables rows={rows}  />
-            </div>
+              <CustomizedTables allrows={rows}  />
             <div className={styles.desc_mobile}>One of our biggest selling points at EverestCM is the pricing we give our traders. You’ll be hard-pressed to find better pricing at any other broker.</div>
           </div>
         </div>
@@ -160,7 +104,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className={styles.third_card}>
+            <div className={` ${styles.third_card} ${styles.third_card_marg_mob} `}>
               <div className={`${styles.card_content}`}>
                 <div className={styles.third_card_content}>
                   <div className={styles.third_card_icon}>
@@ -199,7 +143,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className={styles.third_card}>
+            <div className={`${styles.third_card}`}>
               <div className={`${styles.card_content}`}>
                 <div className={styles.third_card_content}>
                   <div className={styles.third_card_icon}>
@@ -229,7 +173,7 @@ export default function Home() {
           <div className={styles.fourth_title}>
             EverestCM&apos;s Range of
           </div>
-          <div className="text-center w-75 mx-auto">You’re unique, and your trading habits differ from others, which is why we offer 3 different award-winning trading platforms. Each one leverages our outstanding low pricing, ultra-fast execution, and access to our deep liquidity pools.</div>
+          <div className={`text-center w-75 mx-auto ${styles.fourth_desc} `}>You’re unique, and your trading habits differ from others, which is why we offer 3 different award-winning trading platforms. Each one leverages our outstanding low pricing, ultra-fast execution, and access to our deep liquidity pools.</div>
           <div className={styles.fourth_image}>
           <Image alt="EverestCM PC" src="/HomePage/computer.svg" layout="fill"/>
           </div>
@@ -289,25 +233,30 @@ export default function Home() {
         <div className="container">
           <div className={styles.fifth_title}>Trade the Markets <br/> <div className={styles.fifth_sub}>On Your Mobile</div></div>
           <div className={styles.fifth_desc}>Enjoy all the great features of the EverestCM desktop trading experience on your iPhone or Android device.</div>
+
+          <div className={` ${styles.fourth_image} ${styles.fifth_image_mobile} `}>
+            <Image alt="Phone" src="/HomePage/phone.svg" layout="fill"/>
+          </div>
           
         <div className="d-flex mt-5 mb-5">
-          <div className="col-lg-5">
+          <div className="col-lg-5 col-12">
             <div className={styles.fifth_left_pad}>
               <div className={styles.fifth_left_title}>Get an <br/> EverestCM <br/> Account <span className="main_color">Via <br/>SMS!</span></div>
             </div>
-            <div id="custom_number" className="mb-5">
-              <PhoneInput
-              
-              
-              placeholder="Enter your mobile number"
-              country={'us'}
-              value={number}
-              onChange={setNumber}
-              />
+
+            <div className={styles.input_mobile}>
+              <div id="custom_number" className="mb-5">
+                <PhoneInput
+                placeholder="Enter your mobile number"
+                country={'us'}
+                value={number}
+                onChange={setNumber}
+                />
+              </div>
             </div>
           </div>
-          <div className="col-lg-7">
-            <div className={styles.fourth_image}>
+          <div className="col-lg-7 d-flex">
+            <div className={` ${styles.fourth_image} ${styles.fifth_image_desk} `} >
             <Image alt="Phone" src="/HomePage/phone.svg" layout="fill"/>
             </div>
           </div>
@@ -326,15 +275,15 @@ export default function Home() {
       <section className={styles.sixth_sect}>
         <div className="container">
           <div className={styles.chart_bg}>
-            <div className="col-lg-4">
+            <div className="col-lg-4 col-12">
               <div className={styles.fifth_left_pad}>
                 <div className={styles.sixth_left_title}>Our Trading Tools <br/> Take Your Trades <br/> to the <br/><span className={`main_gradient ${styles.sixth_title_grad}`}>Next Level!</span></div>
               </div>
-              <div>EverestCM traders are given access to a complete suite of trading tools which are designed to enhance your trades. </div>
+              <div className={styles.sixth_left_desc}>EverestCM traders are given access to a complete suite of trading tools which are designed to enhance your trades. </div>
               
             </div>
 
-            <div className="col-lg-8">
+            <div className="col-lg-8 col-12">
                   <div className={styles.FirstAndLast_row}>
                     <div className={styles.sixth_card}>
                         <Image alt="Autochartist" src="/HomePage/Autochartist.svg" width={60} height={60} />
@@ -380,17 +329,17 @@ export default function Home() {
       <section className={styles.seventh_sect}>
         <div className="container">
           <div className={styles.seventh_bg}>
-            <div className={` col-lg-6 ${styles.seventh_content}`}>
+            <div className={` col-lg-6 col-12 ${styles.seventh_content}`}>
               <div className={styles.seventh_title}>
                 Seamless <br/> <span className={styles.seventh_sub}>Deposits</span>
               </div>
-              <div>Zero fees when it comes to topping up or withdrawing your funds from your EverestCM account. We’ve partnered with some of the leading payment service solutions providers in the world.</div>
+              <div className={styles.seventh_desc}>Zero fees when it comes to topping up or withdrawing your funds from your EverestCM account. We’ve partnered with some of the leading payment service solutions providers in the world.</div>
             </div>
 
-            <div className="col-lg-6">
+            <div className="col-lg-6 col-12">
               <div className={styles.image_div}>
                 <div className={styles.seventh_image}>
-                  <Image alt="credit card" src="/HomePage/credit_card.svg" layout="fill" />
+                  <Image alt="credit card" src="/HomePage/credit_card.svg" width={370} height={240} />
                 </div>
               </div>
             </div>
@@ -400,27 +349,27 @@ export default function Home() {
 
       <div className={styles.accounts}>
         <div className={styles.account}>
-        <Image alt="visa" src="/HomePage/VISA.svg" layout="fill" />
+        <Image alt="visa" src="/HomePage/VISA.svg" width={80} height={37} />
         </div>
 
         <div className={styles.account}>
-        <Image alt="Master Card" src="/HomePage/MASTERCARD.svg" layout="fill" />
+        <Image alt="Master Card" src="/HomePage/MASTERCARD.svg" width={80} height={37} />
         </div>
         
         <div className={styles.account}>
-        <Image alt="Skrill" src="/HomePage/SKRILL.svg" layout="fill" />
+        <Image alt="Skrill" src="/HomePage/SKRILL.svg" width={80} height={37} />
         </div>
 
         <div className={styles.account}>
-        <Image alt="Neteller" src="/HomePage/NETELLER.svg" layout="fill" />
+        <Image alt="Neteller" src="/HomePage/NETELLER.svg" width={80} height={37} />
         </div>
 
         <div className={styles.account}>
-        <Image alt="Cryptos" src="/HomePage/CRYPTOS.svg" layout="fill" />
+        <Image alt="Cryptos" src="/HomePage/CRYPTOS.svg" width={80} height={37} />
         </div>
 
         <div className={styles.account}>
-        <Image alt="Bank Wire" src="/HomePage/BANK-WIRE.svg" layout="fill" />
+        <Image alt="Bank Wire" src="/HomePage/BANK-WIRE.svg" width={80} height={37} />
         </div>
       </div>
 

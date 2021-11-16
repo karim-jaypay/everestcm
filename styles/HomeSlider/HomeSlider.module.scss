@@ -124,7 +124,7 @@
     }
 
     .slide_pad {
-        padding: 6rem 0rem;
+        padding: 3rem 0rem;
         .slider_div {
             text-align: center;
             
@@ -137,7 +137,19 @@
             }
         }
     }
+}
 
-    
-    
+@media only screen and (max-width: 600px) {
+    .card_bg {
+        width: 100% !important
+    }
+    .slider_title {
+        margin-bottom: 3.5rem !important
+    }
+    .slider_cards {
+        overflow-y: auto;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        height: 400px;
+    }
 }
