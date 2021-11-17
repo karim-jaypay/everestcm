@@ -17,6 +17,9 @@ a {
   box-sizing: border-box;
 }
 
+header ul {
+  list-style: none !important;
+}
 header ul, li {
   padding: 0;
   margin: 0;

@@ -6,12 +6,13 @@ $main_color: #23A5D6;
 
     .titles_div {
         display: flex;
+        justify-content: center;
         flex-wrap: wrap;
         padding-top: 18rem;
 
         .title_content {
-            width: 15%;
-            margin-right: auto;
+            width: 190px;
+            margin: 0 auto;
 
             .title {
                 color: $main_color;
@@ -59,3 +60,21 @@ $main_color: #23A5D6;
         margin-bottom: 50px;
     }
 }
+
+@media screen and (max-width: 1200px) {
+    .title_content {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .socials_div {
+        display: block !important;
+        text-align: center;
+        .socials {
+            justify-content: center !important;
+            width: 100% !important
+        }
+    }
+}
+

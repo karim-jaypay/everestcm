@@ -37,7 +37,7 @@
         display: flex;
     }
     .slider_title {
-        font-size: clamp(50px,5vw,25px);
+        font-size: clamp(25px,5vw,50px);
         margin-bottom: 5.5rem
     }
     .slider_subtitle {
@@ -119,7 +119,7 @@
         display: none;
     }
     .card_mobile {
-        display: flex !important;
+        
         margin-bottom: 3rem;
     }
 
@@ -130,12 +130,17 @@
             
             .card_bg {
                 margin: 0 auto 20px auto;
+                width: 70%
             }
 
             .slider_subtitle {
                 margin-bottom: 3rem
             }
         }
+    }
+
+    .slide_second_bg, .slide_third_bg {
+        display: none !important;
     }
 }
 
@@ -145,11 +150,5 @@
     }
     .slider_title {
         margin-bottom: 3.5rem !important
-    }
-    .slider_cards {
-        overflow-y: auto;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        height: 400px;
     }
 }
