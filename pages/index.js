@@ -248,7 +248,7 @@ export default function Home() {
               <div id="custom_number" className="mb-5">
                 <PhoneInput
                 placeholder="Enter your mobile number"
-                country={'us'}
+                country={'cy'}
                 value={number}
                 onChange={setNumber}
                 />
@@ -275,7 +275,7 @@ export default function Home() {
       <section className={styles.sixth_sect}>
         <div className="container">
           <div className={styles.chart_bg}>
-            <div className="col-lg-4 col-12">
+            <div className="col-xl-4 col-12">
               <div className={styles.fifth_left_pad}>
                 <div className={styles.sixth_left_title}>Our Trading Tools <br/> Take Your Trades <br/> to the <br/><span className={`main_gradient ${styles.sixth_title_grad}`}>Next Level!</span></div>
               </div>
@@ -283,7 +283,7 @@ export default function Home() {
               
             </div>
 
-            <div className="col-lg-8 col-12">
+            <div className="col-xl-8 col-12">
                   <div className={styles.FirstAndLast_row}>
                     <div className={styles.sixth_card}>
                         <Image alt="Autochartist" src="/HomePage/Autochartist.svg" width={60} height={60} />

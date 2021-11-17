@@ -55,7 +55,7 @@ function HomeSlider() {
                     <div className={`${styles.slide_pad} container `}>
                         <div className={styles.slider_div}>
                             <div className="col-lg-6 col-12">
-                                <div className={styles.slider_title}>
+                                <div className={` ${styles.slider_title} ${styles.slider_first_title}`}>
                                     Trade sky-high <br/> at Everest<span style={{color: '#23A5D6'}}>CM</span> with <br/> <span style={{fontWeight: '900'}}>rock-bottom pricing</span>
                                 </div>
 

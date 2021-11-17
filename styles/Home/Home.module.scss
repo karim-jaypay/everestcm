@@ -266,6 +266,27 @@ $main-color: #23A5D6;
       text-align: center;
     }
   }
+
+  .chart_bg {
+    display: block;
+
+    .sixth_left_title, .sixth_left_desc {
+      margin-bottom: 30px
+    }
+  }
+  .sixth_sect {
+    margin-bottom: 50px;
+    .fifth_left_pad {
+      padding-top: 0;
+      padding-right: 0;
+      text-align: center;
+    }
+    .sixth_left_desc {
+      text-align: center;
+      width: 100%;
+      margin-bottom: 30px
+    }
+  }
   
 }
 
@@ -298,20 +319,9 @@ $main-color: #23A5D6;
     justify-content: center;
   }
 
-  .sixth_sect {
-    margin-bottom: 50px
-  }
-
-  .chart_bg {
-    display: block;
-
-    .sixth_left_title, .sixth_left_desc {
-      margin-bottom: 30px
-    }
-  }
-
   .seventh_bg {
     display: block !important;
+    text-align: center;
     .image_div {
       justify-content: center;
     }
@@ -320,10 +330,6 @@ $main-color: #23A5D6;
 
       .seventh_title {
         margin-bottom: 30px !important;
-        text-align: center;
-      }
-      .seventh_desc {
-        text-align: center;
       }
     }
 
@@ -369,6 +375,7 @@ $main-color: #23A5D6;
     text-align: center;
     .account {
       margin-bottom: 20px;
+      margin-right: 0 !important
     }
   }
   
