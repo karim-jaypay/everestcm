@@ -1,4 +1,9 @@
 $main-color: #23A5D6;
+
+.tilt {
+  width: 100% !important;
+  box-shadow: none !important;
+}
 .circle {
   
   margin: 50px auto 10px auto;
@@ -160,6 +165,11 @@ $main-color: #23A5D6;
     padding: 21px 30px;
     width: 382px;
     margin-right: 56px;
+    transition: .3s;
+    &:hover {
+      transform: scale(1.1);
+      transition: .3s;
+    }
   }
 }
 

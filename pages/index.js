@@ -5,6 +5,7 @@ import Image from 'next/image'
 import HomeSlider from '../Components/HomeSlider'
 import CustomizedTables from '../Components/MaterialTable'
 import PhoneInput from 'react-phone-input-2'
+import Tilt from 'react-vanilla-tilt'
 
 
 import styles from '../styles/Home/Home.module.scss'
@@ -117,12 +118,12 @@ const firstUpdate = useRef(true)
           
           <div className={styles.third_cards_div}>
             <div className={`${styles.third_card} ${styles.third_card_marg}`}>
-              <div className={`${styles.card_gradient} ${styles.card_content}`}>
+              <div className={`${styles.card_content}`}>
                 <div className={styles.third_card_content}>
                   <div className={styles.third_card_icon}>
                   <Image alt="" src="/HomePage/card_first.svg" width={75} height={75} />
                   </div>
-                  <div className={styles.third_card_desc}>
+                  <div className={styles.third_card_desc_hover}>
                     Ultra competitive spreads on hundreds of hundreds hundreds
                   </div>
                 </div>
@@ -212,9 +213,11 @@ const firstUpdate = useRef(true)
             EverestCM&apos;s Range of
           </div>
           <div className={`text-center w-75 mx-auto ${styles.fourth_desc} `}>You’re unique, and your trading habits differ from others, which is why we offer 3 different award-winning trading platforms. Each one leverages our outstanding low pricing, ultra-fast execution, and access to our deep liquidity pools.</div>
+          <Tilt className={styles.tilt} options={{ max: 15, glare: true}}>
           <div className={styles.fourth_image}>
           <Image alt="EverestCM PC" src="/HomePage/computer.svg" layout="fill"/>
           </div>
+          </Tilt>
 
           <div className={styles.fourth_cards}>
             <div className={styles.fourth_card}>
