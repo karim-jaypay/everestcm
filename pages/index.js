@@ -14,7 +14,7 @@ export default function Home(props) {
   const [tradeUnits, setTradeUnits] = useState()
 
   // ref to run fetchData function inside interval after first render
-  const firstUpdate = useRef(true)
+const firstUpdate = useRef(true)
 
   let data = []
 
