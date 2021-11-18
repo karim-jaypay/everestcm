@@ -8,22 +8,24 @@ function Header() {
     return (
         <header className={` ${styles.container} container`}>
             <nav className="d-flex">
-                <Image alt="EverestCM" src='/Header/EverestCMLogo.svg' width={176} height={40} />
+                <Link href="/" passHref={true}>
+                <Image alt="EverestCM" src='/Header/EverestCMLogo.svg' width={176} height={40} className={styles.header_logo} />
+                </Link>
 
                 <ul className={styles.right}>
                     <li>
-                        <Link href="" >
+                        <Link href="https://ascend-mu.everestcm.com/register/"  >
                             <a className={styles.button_live}> OPEN LIVE ACCOUNT </a>
                         </Link>
                     </li>
 
                     <li>
-                        <Link href="" >
+                        <Link href="https://ascend-mu.everestcm.com/register/"  >
                             <a className={styles.button_demo}> OPEN DEMO ACCOUNT </a>
                         </Link>
                     </li>
 
-                    <li className="d-flex">
+                    <li className={` d-flex ${styles.menu} `}>
                         <Image alt="Menu" src='/Header/menuIcon.svg' width={22} height={10} />
                         <div className={styles.menu_icon}>Menu</div>
                     </li>

@@ -11,11 +11,6 @@ function HomeSlider(props) {
 
     const { data } = props
 
-    if(data) {
-        const Quotes = Object.keys(data[0])
-        console.log(Quotes)
-    }
-
     const settings = {
         dots: true,
         infinite: false,
@@ -58,12 +53,12 @@ function HomeSlider(props) {
             {
                 // first slider
             }
-                <div className={styles.slide_first_bg}>
+                <div key="slider1" className={styles.slide_first_bg}>
                     <div className={`${styles.slide_pad} container `}>
                         <div className={styles.slider_div}>
                             <div className="col-lg-6 col-12">
-                                <div className={` ${styles.slider_title} ${styles.slider_first_title}`}>
-                                    Trade sky-high <br/> at Everest<span style={{color: '#23A5D6'}}>CM</span> with <br/> <span style={{fontWeight: '900'}}>rock-bottom pricing</span>
+                                <div className={` ${styles.slider_title}`}>
+                                    Trade sky-high <br/> at Everest<span style={{color: '#23A5D6'}}>CM</span> with <br/> <span style={{fontWeight: '900'}}>rock-bottom <br/> pricing</span>
                                 </div>
 
                                 <div className={`${styles.slider_cards} ${styles.card_mobile}`}>
@@ -73,9 +68,9 @@ function HomeSlider(props) {
                                             const title = Object.keys(data[index])[0]
                                         
                                             return (
-                                                <>
-                                                <TradeCards key={title} title={title} percentage={'+0.12%'} bid={item[title].bid} ask={item[title].ask} />
-                                                </>
+                                                <div key={` ${title}_mobile `} className={styles.card_bg}>
+                                                <TradeCards title={title} percentage={'+0.12%'} bid={item[title].bid} ask={item[title].ask} />
+                                                </div>
                                                 )
                                             })
                                         }
@@ -97,9 +92,9 @@ function HomeSlider(props) {
                                     const title = Object.keys(data[index])[0]
                         
                                     return (
-                                        <>
-                                        <TradeCards key={title} title={title} percentage={'+0.12%'} bid={item[title].bid} ask={item[title].ask}/>
-                                        </>
+                                        <div key={` ${title}_desktop `} className={styles.card_bg}>
+                                        <TradeCards title={title} percentage={'+0.12%'} bid={item[title].bid} ask={item[title].ask}/>
+                                        </div>
                                         )
                                     })
                                 }
@@ -115,7 +110,7 @@ function HomeSlider(props) {
                 // second slider
             }
 
-                <div className={styles.slide_second_bg}>
+                <div key="slider2" className={styles.slide_second_bg}>
                     <div className={`${styles.slide_pad} container `}>
                         <div className="d-flex">
                             <div className="col-lg-6 col-12">
@@ -145,7 +140,7 @@ function HomeSlider(props) {
             {
                 // third slider
             }
-                <div className={styles.slide_third_bg}>
+                <div key="slider3" className={styles.slide_third_bg}>
                     <div className={`${styles.slide_pad} container `}>
                         <div className="d-flex">
                             <div className="col-lg-6">

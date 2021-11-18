@@ -19,16 +19,16 @@ const firstUpdate = useRef(true)
   let data = []
 
   const fetchData = async () => {
-    await axios.get('https://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/eurusd').then((res) => {
+    await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/eurusd').then((res) => {
       data.push(res.data)
     }); 
-    await axios.get('https://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/usdjpy').then((res) => {
+    await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/usdjpy').then((res) => {
       data.push(res.data)
     }); 
-    await axios.get('https://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/gbpusd').then((res) => {
+    await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/gbpusd').then((res) => {
       data.push(res.data)
     }); 
-    await axios.get('https://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/xauusd').then((res) => {
+    await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/xauusd').then((res) => {
       data.push(res.data)
     }); 
     setTradeUnits(data)
@@ -123,7 +123,7 @@ const firstUpdate = useRef(true)
                   <Image alt="" src="/HomePage/card_first.svg" width={75} height={75} />
                   </div>
                   <div className={styles.third_card_desc}>
-                    Ultra competitive spreads on hundreds of
+                    Ultra competitive spreads on hundreds of hundreds hundreds
                   </div>
                 </div>
               </div>
@@ -135,7 +135,7 @@ const firstUpdate = useRef(true)
                   <div className={styles.third_card_icon}>
                   <Image alt="" src="/HomePage/card_second.svg" width={75} height={75}  />
                   </div>
-                  <div>
+                  <div className={styles.third_card_desc_hover}>
                   Outstandingly fast trading execution. Less than 10ms!
                   </div>
                 </div>
@@ -415,31 +415,4 @@ const firstUpdate = useRef(true)
 
       
   )
-}
-
-export async function getStaticProps() {
-
-  let data = {}
-
-  await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/eurusd').then((res) => {
-    Object.assign(data, res.data)
-  }); 
-  await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/usdjpy').then((res) => {
-    Object.assign(data, res.data)
-  }); 
-  await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/gbpusd').then((res) => {
-    Object.assign(data, res.data)
-  }); 
-  await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/xauusd').then((res) => {
-    Object.assign(data, res.data)
-  }); 
-
-  
-  return {
-    props: { 
-      data 
-    },
-    revalidate: 3
-
-  }
 }

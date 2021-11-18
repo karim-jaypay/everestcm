@@ -25,6 +25,7 @@
     .slider_second_phone {
         display: flex;
         justify-content: flex-end;
+        position: relative
     }
     .slider_second_phone > span, .slider_second_phone > span > img {
         position: relative !important;
@@ -60,6 +61,13 @@
         backdrop-filter: blur(5px);
         margin-left: auto;
         margin-bottom: 20px;
+        transition: all .3s;
+
+        &:hover {
+            
+            width: 45%;
+            transition: all .3s;
+        }
 
         .first_row {
             display: flex;
@@ -106,12 +114,6 @@
     display: none;
 }
 
-
-@media screen and (min-width: 1200px) {
-    .slider_first_title {
-        margin-bottom: 10rem !important
-    }
-}
 
 @media screen and (max-width: 1300px) {
     .slide_pad {
