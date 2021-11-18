@@ -19,16 +19,16 @@ const firstUpdate = useRef(true)
   let data = []
 
   const fetchData = async () => {
-    await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/eurusd').then((res) => {
+    await axios.get('https://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/eurusd').then((res) => {
       data.push(res.data)
     }); 
-    await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/usdjpy').then((res) => {
+    await axios.get('https://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/usdjpy').then((res) => {
       data.push(res.data)
     }); 
-    await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/gbpusd').then((res) => {
+    await axios.get('https://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/gbpusd').then((res) => {
       data.push(res.data)
     }); 
-    await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/xauusd').then((res) => {
+    await axios.get('https://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/xauusd').then((res) => {
       data.push(res.data)
     }); 
     setTradeUnits(data)
