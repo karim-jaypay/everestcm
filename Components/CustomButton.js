@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-function CustomButton({ data }) {
+function CustomButton({ data, link }) {
 
     const button_style = {
         background: '#23A5D6',
@@ -13,7 +13,7 @@ function CustomButton({ data }) {
     }
     return (
         <div>
-            <Link href="" >
+            <Link href={link ? link : ''} >
                 <a style={button_style}>{ data }</a>
             </Link>
         </div>

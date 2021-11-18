@@ -7,7 +7,14 @@ import CustomButton from '../CustomButton'
 
 import TradeCards from '../TradeCards'
 
-function HomeSlider() {
+function HomeSlider(props) {
+
+    const { data } = props
+
+    if(data) {
+        const Quotes = Object.keys(data[0])
+        console.log(Quotes)
+    }
 
     const settings = {
         dots: true,
@@ -61,10 +68,17 @@ function HomeSlider() {
 
                                 <div className={`${styles.slider_cards} ${styles.card_mobile}`}>
                                     <Slider {...trade_settings}>
-                                        <TradeCards title={'EURUSD'} percentage={'+0.12%'} />
-                                        <TradeCards title={'EURUSD'} percentage={'+0.12%'} />
-                                        <TradeCards title={'EURUSD'} percentage={'+0.12%'} />
-                                        <TradeCards title={'EURUSD'} percentage={'+0.12%'} />
+                                        { data && data.map((item, index) => {
+
+                                            const title = Object.keys(data[index])[0]
+                                        
+                                            return (
+                                                <>
+                                                <TradeCards key={title} title={title} percentage={'+0.12%'} bid={item[title].bid} ask={item[title].ask} />
+                                                </>
+                                                )
+                                            })
+                                        }
                                     </Slider>
                                 </div>
 
@@ -73,15 +87,22 @@ function HomeSlider() {
                                 </div>
 
                                 <div>
-                                    <CustomButton data='Start Trading' /> 
+                                    <CustomButton data='Start Trading' link="https://ascend-mu.everestcm.com/register/" /> 
                                 </div>
                             </div>
                             <div className="col-lg-6 col-12">
                                 <div className={` ${styles.slider_cards} ${styles.card_desktop}`}>
-                                    <TradeCards title={'EURUSD'} percentage={'+0.12%'} />
-                                    <TradeCards title={'EURUSD'} percentage={'+0.12%'} />
-                                    <TradeCards title={'EURUSD'} percentage={'+0.12%'} />
-                                    <TradeCards title={'EURUSD'} percentage={'+0.12%'} />
+                                { data && data.map((item, index) => {
+
+                                    const title = Object.keys(data[index])[0]
+                        
+                                    return (
+                                        <>
+                                        <TradeCards key={title} title={title} percentage={'+0.12%'} bid={item[title].bid} ask={item[title].ask}/>
+                                        </>
+                                        )
+                                    })
+                                }
                                 </div>
                             </div>
 
@@ -107,7 +128,7 @@ function HomeSlider() {
                                 </div>
 
                                 <div>
-                                    <CustomButton data='Start Trading' /> 
+                                    <CustomButton data='Start Trading' link="https://ascend-mu.everestcm.com/register/" /> 
                                 </div>
                             </div>
                             <div className="col-lg-6">
@@ -137,7 +158,7 @@ function HomeSlider() {
                                 </div>
 
                                 <div>
-                                    <CustomButton data='Start Trading' /> 
+                                    <CustomButton data='Start Trading' link="https://ascend-mu.everestcm.com/register/" /> 
                                 </div>
                             </div>
                             <div className="col-lg-6">

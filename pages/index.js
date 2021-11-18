@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState, useCallback, useRef } from 'react'
+import axios from 'axios'
 import Image from 'next/image'
 
 import HomeSlider from '../Components/HomeSlider'
@@ -8,7 +9,44 @@ import PhoneInput from 'react-phone-input-2'
 
 import styles from '../styles/Home/Home.module.scss'
 
-export default function Home() {
+export default function Home(props) {
+
+  const [tradeUnits, setTradeUnits] = useState()
+
+  // ref to run fetchData function inside interval after first render
+  const firstUpdate = useRef(true)
+
+  let data = []
+
+  const fetchData = async () => {
+    await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/eurusd').then((res) => {
+      data.push(res.data)
+    }); 
+    await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/usdjpy').then((res) => {
+      data.push(res.data)
+    }); 
+    await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/gbpusd').then((res) => {
+      data.push(res.data)
+    }); 
+    await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/xauusd').then((res) => {
+      data.push(res.data)
+    }); 
+    setTradeUnits(data)
+  }
+
+  useEffect(() => {
+
+    if (firstUpdate.current) {
+      fetchData()
+      firstUpdate.current = false;
+    }
+  
+    const interval = setInterval(fetchData, 3000)
+
+    return () => clearInterval(interval)
+  }, [tradeUnits])
+
+
 
   const [number, setNumber] = useState('')
 
@@ -39,7 +77,7 @@ export default function Home() {
       // First section Slider
     }
       <section>
-        <HomeSlider />
+        <HomeSlider data={tradeUnits} />
       </section>
 
         <div className={`${styles.first_circle} ${styles.circle} container`}> 
@@ -377,4 +415,31 @@ export default function Home() {
 
       
   )
+}
+
+export async function getStaticProps() {
+
+  let data = {}
+
+  await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/eurusd').then((res) => {
+    Object.assign(data, res.data)
+  }); 
+  await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/usdjpy').then((res) => {
+    Object.assign(data, res.data)
+  }); 
+  await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/gbpusd').then((res) => {
+    Object.assign(data, res.data)
+  }); 
+  await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/xauusd').then((res) => {
+    Object.assign(data, res.data)
+  }); 
+
+  
+  return {
+    props: { 
+      data 
+    },
+    revalidate: 3
+
+  }
 }
