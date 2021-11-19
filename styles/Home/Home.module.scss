@@ -153,6 +153,7 @@ $main-color: #23A5D6;
       background: #fff;
       padding: 21px 30px;
       border-radius: 7px;
+      height: 100%;
     }
   }
 }
@@ -237,43 +238,44 @@ $main-color: #23A5D6;
         } 
       }
 
-      &:hover img {
-        filter: brightness(0) invert(1);
-        transition: 3s;
-      }
       &:hover {
         color: white;
-        transition: 3s
+        transition: 3s;
+        img {
+          filter: brightness(0) invert(1);
+          transition: 3s;
+        }
+        .sixth_wave:before{
+          background: linear-gradient(#23A5D6, #60BB7D);
+          border-radius: 45%;
+          animation: wave 1.5s infinite linear;
+          animation-fill-mode: forwards;
+          animation-iteration-count: 1;
+        }
+        .sixth_wave:after {
+          background: linear-gradient(#23A5D6, #60BB7D);
+          border-radius: 45%;
+          animation: wave 1.5s infinite linear;
+          animation-fill-mode: forwards;
+          animation-iteration-count: 1;
+        }
       }
-      &:hover .sixth_wave:before{
-        background: linear-gradient(#23A5D6, #60BB7D);
-        border-radius: 45%;
-        animation: wave 1s infinite linear;
-        animation-fill-mode: forwards;
-        animation-iteration-count: 1;
+    }
+
+    @keyframes wave {
+      0% {
+        transform: translate(-55%, -45%) rotate(0deg);
+        top: 160%
+        
       }
-      &:hover .sixth_wave:after {
-        background: linear-gradient(#23A5D6, #60BB7D);
-        border-radius: 45%;
-        animation: wave 1s infinite linear;
-        animation-fill-mode: forwards;
-        animation-iteration-count: 1;
+      100% {
+        transform: translate(-55%, -45%) rotate(360deg);
+        top: 52%;
       }
     }
     
   
 }
-  @keyframes wave {
-    0% {
-      transform: translate(-50%, -40%) rotate(0deg);
-      top: 160%
-      
-    }
-    100% {
-      transform: translate(-50%, -55%) rotate(360deg);
-      top: 52%;
-    }
-  }
   .FirstAndLast_row {
     justify-content: center;
   }

@@ -87,3 +87,7 @@ header a, header a:hover {
 #custom_number > .react-tel-input > .form-control:focus {
   box-shadow: none !important;
 }
+
+.selected-flag > .flag {
+  zoom: 1.5
+}
