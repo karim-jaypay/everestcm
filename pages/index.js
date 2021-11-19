@@ -219,34 +219,40 @@ const firstUpdate = useRef(true)
           </div>
           </Tilt>
 
+
           <div className={styles.fourth_cards}>
-            <div className={styles.fourth_card}>
-                <div className="d-flex">
-                  <Image alt="Meta" src="/HomePage/meta.svg" width={75} height={75} />
-                  <div className="ms-2 my-auto">
-                    <div className="fw-bold">MT4</div>
-                    <div>by Metaquotes</div>
+            <div className={styles.fourth_card_div}>
+              <div className={styles.fourth_card}>
+                  <div className="d-flex">
+                    <Image alt="Meta" src="/HomePage/meta.svg" width={75} height={75} />
+                    <div className="ms-2 my-auto">
+                      <div className="fw-bold">MT4</div>
+                      <div>by Metaquotes</div>
+                    </div>
                   </div>
-                </div>
 
-                <div className="mt-3">MetaTrader 4 is the classic trading platform all traders know and love.</div>
+                  <div className="mt-3">MetaTrader 4 is the classic trading platform all traders know and love.</div>
 
+              </div>
             </div>
 
-            <div className={styles.fourth_card}>
-                <div className="d-flex">
-                  <Image alt="Meta" src="/HomePage/meta.svg" width={75} height={75} />
-                  <div className="ms-2 my-auto">
-                    <div className="fw-bold">MT5</div>
-                    <div>by Metaquotes</div>
+            <div className={styles.fourth_card_div}>
+              <div className={styles.fourth_card}>
+                  <div className="d-flex">
+                    <Image alt="Meta" src="/HomePage/meta.svg" width={75} height={75} />
+                    <div className="ms-2 my-auto">
+                      <div className="fw-bold">MT5</div>
+                      <div>by Metaquotes</div>
+                    </div>
                   </div>
-                </div>
 
-                <div className="mt-3">The upgraded version of its predecessor. MT5 is gathering momentum!</div>
+                  <div className="mt-3">The upgraded version of its predecessor. MT5 is gathering momentum!</div>
 
+              </div>
             </div>
 
-            <div className={` ${styles.fourth_card} ${styles.border_gradient}`}>
+          <div className={styles.fourth_card_div}>
+            <div className={` ${styles.fourth_card}`}>
                 <div className="d-flex">
                   <Image alt="Meta" src="/HomePage/everest.svg" width={75} height={75} />
                   <div className="ms-2 my-auto">
@@ -258,6 +264,7 @@ const firstUpdate = useRef(true)
                 <div className="mt-3">Our own bespoke trading platform which is aimed at beginner traders.</div>
 
             </div>
+          </div>
 
           </div>
         </div>
