@@ -1,7 +1,6 @@
 {
   "name": "everestcm",
   "private": true,
-  "proxy": "http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com",
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
