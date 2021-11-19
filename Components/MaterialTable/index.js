@@ -53,6 +53,12 @@ export default function CustomizedTables(props) {
   };
 
 
+  // function to select category 
+  const targetCategory = (id) => {
+    console.log(id)
+  }
+
+
   return (
 
   <div className={styles.table_div}>
@@ -66,13 +72,13 @@ export default function CustomizedTables(props) {
     <div className={styles.table_filters_div}>
       <div className="d-flex">
           <div className={styles.table_titles_div}>
-            <a className={`${styles.table_titles} ${styles.table_title_active}`}>Forex</a>
-            <a className={styles.table_titles}>Metals</a>
-            <a className={styles.table_titles}>Shares</a>
-            <a className={styles.table_titles}>Commodities</a>
-            <a className={styles.table_titles}>Cryptos</a>
-            <a className={styles.table_titles}>Energies</a>
-            <a className={styles.table_titles}>Indices</a>
+            <a id="Forex" className={`${styles.table_titles} ${styles.table_title_active}`} onClick={(e) => targetCategory(e.target.id)}>Forex</a>
+            <a id="Metals" className={styles.table_titles}>Metals</a>
+            <a id="Shares"className={styles.table_titles}>Shares</a>
+            <a id="Commodities" className={styles.table_titles}>Commodities</a>
+            <a id="Cryptos" className={styles.table_titles}>Cryptos</a>
+            <a id="Energies" className={styles.table_titles}>Energies</a>
+            <a id="Indices" className={styles.table_titles}>Indices</a>
           </div>
 
           <div className={` ${styles.table_search_div} ${styles.table_search_desktop}`}>

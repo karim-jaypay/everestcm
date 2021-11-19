@@ -13,9 +13,10 @@ import styles from '../styles/Home/Home.module.scss'
 export default function Home(props) {
 
   const [tradeUnits, setTradeUnits] = useState()
+  const [number, setNumber] = useState('')
 
   // ref to run fetchData function inside interval after first render
-const firstUpdate = useRef(true)
+  const firstUpdate = useRef(true)
 
   let data = []
 
@@ -46,10 +47,6 @@ const firstUpdate = useRef(true)
 
     return () => clearInterval(interval)
   }, [tradeUnits])
-
-
-
-  const [number, setNumber] = useState('')
 
 
   function createData(name, sell, buy, spread, change) {
@@ -214,9 +211,7 @@ const firstUpdate = useRef(true)
           </div>
           <div className={`text-center w-75 mx-auto ${styles.fourth_desc} `}>You’re unique, and your trading habits differ from others, which is why we offer 3 different award-winning trading platforms. Each one leverages our outstanding low pricing, ultra-fast execution, and access to our deep liquidity pools.</div>
           <Tilt className={styles.tilt} options={{ max: 15, glare: true}}>
-          <div className={styles.fourth_image}>
-          <Image alt="EverestCM PC" src="/HomePage/computer.svg" layout="fill"/>
-          </div>
+            <Image alt="EverestCM PC" src="/HomePage/computer.svg" width={1236} height={696}  />
           </Tilt>
 
 
@@ -282,18 +277,19 @@ const firstUpdate = useRef(true)
           <div className={styles.fifth_title}>Trade the Markets <br/> <div className={styles.fifth_sub}>On Your Mobile</div></div>
           <div className={styles.fifth_desc}>Enjoy all the great features of the EverestCM desktop trading experience on your iPhone or Android device.</div>
 
-          <div className={` ${styles.fourth_image} ${styles.fifth_image_mobile} `}>
-            <Image alt="Phone" src="/HomePage/phone.svg" layout="fill"/>
+          <div className={` ${styles.fifth_image_mobile} `}>
+            <Image alt="Phone" src="/HomePage/phone.svg" width={1903} height={1023} />
           </div>
           
         <div className="d-flex mt-5 mb-5">
           <div className="col-lg-5 col-12">
-            <div className={styles.fifth_left_pad}>
-              <div className={styles.fifth_left_title}>Get an <br/> EverestCM <br/> Account <span className="main_color">Via <br/>SMS!</span></div>
+            <div className={` ${styles.fifth_left_pad}`}>
+              <div className={` ${styles.fifth_left_title} `}>Get an <br/> EverestCM <br/> Account <span className="main_color">Via <br/>SMS!</span></div>
+             
             </div>
 
             <div className={styles.input_mobile}>
-              <div id="custom_number" className="mb-5">
+              <div id="custom_number" className={`mb-5 `}>
                 <PhoneInput
                 placeholder="Enter your mobile number"
                 country={'cy'}
@@ -304,8 +300,8 @@ const firstUpdate = useRef(true)
             </div>
           </div>
           <div className="col-lg-7 d-flex">
-            <div className={` ${styles.fourth_image} ${styles.fifth_image_desk} `} >
-            <Image alt="Phone" src="/HomePage/phone.svg" layout="fill"/>
+            <div className={` ${styles.fifth_image_desk} `} >
+            <Image alt="Phone" src="/HomePage/phone.svg" width={1903} height={1723} />
             </div>
           </div>
         </div>
@@ -333,13 +329,18 @@ const firstUpdate = useRef(true)
 
             <div className="col-xl-8 col-12">
                   <div className={styles.FirstAndLast_row}>
+                    
+                  
                     <div className={styles.sixth_card}>
                         <Image alt="Autochartist" src="/HomePage/Autochartist.svg" width={60} height={60} />
                         <div>Autochartist</div>
+                        <div className={styles.sixth_wave}></div>
                     </div>
+                    
                     <div className={styles.sixth_card}>
                         <Image alt="Analysis" src="/HomePage/loup.svg" width={60} height={60} />
                         <div>Analysis</div>
+                        <div className={styles.sixth_wave}></div>
                     </div>
                   </div>
 
@@ -347,10 +348,12 @@ const firstUpdate = useRef(true)
                     <div className={styles.sixth_card}>
                       <Image alt="Signal" src="/HomePage/market.svg" width={60} height={60} />
                         <div>Signal</div>
+                        <div className={styles.sixth_wave}></div>
                     </div>
                     <div className={styles.sixth_card}>
                         <Image alt="Calculator" src="/HomePage/calculator.svg" width={60} height={60} />
                         <div>Calculator</div>
+                        <div className={styles.sixth_wave}></div>
                     </div>
                   </div>
 
@@ -358,10 +361,12 @@ const firstUpdate = useRef(true)
                     <div className={styles.sixth_card}>
                       <Image alt="Education" src="/HomePage/graduation.svg" width={60} height={60} />
                         <div>Education</div>
+                        <div className={styles.sixth_wave}></div>
                     </div>
                     <div className={styles.sixth_card}>
                         <Image alt="VPS" src="/HomePage/vps.svg" width={60} height={60} />
                         <div>VPS</div>
+                        <div className={styles.sixth_wave}></div>
                     </div>
                   </div>
             </div>
