@@ -91,3 +91,11 @@ header a, header a:hover {
 .selected-flag > .flag {
   zoom: 1.5
 }
+
+@media screen and (max-width: 600px) {
+
+  .selected-flag > .flag {
+  zoom: 2.0
+  }
+
+}
