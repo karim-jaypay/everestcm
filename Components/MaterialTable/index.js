@@ -37,12 +37,19 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 export default function CustomizedTables(props) {
   
-  const { allrows } = props
+  // get all props
+  const { allrows, categories, filters } = props
 
+  // states
   const [rows, setRows] = useState(allrows)
 
   const [searched, setSearched] = useState('')
 
+  const [category, setCategory] = useState(categories[0])
+
+  const [filter, setFilter] = useState(filters[0])
+
+  // search function
   const requestSearch = (e) => {
     const searched = e.target.value
     setSearched(e.target.value)
@@ -55,7 +62,20 @@ export default function CustomizedTables(props) {
 
   // function to select category 
   const targetCategory = (id) => {
-    console.log(id)
+    document.querySelector(`#${category}`).classList.remove(styles.table_title_active)
+
+    document.querySelector(`#${id}`).classList.add(styles.table_title_active)
+
+    setCategory(id)
+  }
+
+  // function to select filter 
+  const targetFilter = (id) => {
+    document.querySelector(`#${filter}`).classList.remove(styles.table_filter_active)
+
+    document.querySelector(`#${id}`).classList.add(styles.table_filter_active)
+
+    setFilter(id)
   }
 
 
@@ -72,13 +92,11 @@ export default function CustomizedTables(props) {
     <div className={styles.table_filters_div}>
       <div className="d-flex">
           <div className={styles.table_titles_div}>
-            <a id="Forex" className={`${styles.table_titles} ${styles.table_title_active}`} onClick={(e) => targetCategory(e.target.id)}>Forex</a>
-            <a id="Metals" className={styles.table_titles}>Metals</a>
-            <a id="Shares"className={styles.table_titles}>Shares</a>
-            <a id="Commodities" className={styles.table_titles}>Commodities</a>
-            <a id="Cryptos" className={styles.table_titles}>Cryptos</a>
-            <a id="Energies" className={styles.table_titles}>Energies</a>
-            <a id="Indices" className={styles.table_titles}>Indices</a>
+            { categories.map((item, index) => {
+              return (
+                <a key={item} id={item} className={`${styles.table_titles} ${index === 0 && styles.table_title_active}`} onClick={(e) => targetCategory(e.target.id)}>{ item }</a>
+              )
+            })}
           </div>
 
           <div className={` ${styles.table_search_div} ${styles.table_search_desktop}`}>
@@ -91,10 +109,12 @@ export default function CustomizedTables(props) {
       </div>
       
       <div className={styles.table_filters}>
-          <a className={`${styles.table_filter} ${styles.table_filter_active}`}>Majors</a>
-          <a className={styles.table_filter}>Minors</a>
-          <a className={styles.table_filter}>Exotics</a>
-          <a className={styles.table_filter}>All</a>
+        { filters.map((item, index) => {
+          return (
+          <a key={item} id={item} className={`${styles.table_filter} ${index === 0 && styles.table_filter_active}`} onClick={(e) => targetFilter(e.target.id)}>{ item }</a>
+          )
+        })}
+        
       </div>
 
       

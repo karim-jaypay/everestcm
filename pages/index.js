@@ -12,6 +12,7 @@ import styles from '../styles/Home/Home.module.scss'
 
 export default function Home(props) {
 
+  // states
   const [tradeUnits, setTradeUnits] = useState()
   const [number, setNumber] = useState('')
 
@@ -20,6 +21,7 @@ export default function Home(props) {
 
   let data = []
 
+  // get trade quotes
   const fetchData = async () => {
     await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/eurusd/').then((res) => {
       data.push(res.data)
@@ -37,18 +39,18 @@ export default function Home(props) {
   }
 
   useEffect(() => {
-
+    // run this api once when page loads
     if (firstUpdate.current) {
       fetchData()
       firstUpdate.current = false;
     }
-  
+    // then run it every 3 seconds
     const interval = setInterval(fetchData, 3000)
 
     return () => clearInterval(interval)
   }, [tradeUnits])
 
-
+  // table data
   function createData(name, sell, buy, spread, change) {
     return { name, sell, buy, spread, change };
   }
@@ -66,7 +68,10 @@ export default function Home(props) {
     createData('EURUSD', <span className={styles.number_green}>1.2087<sup>4</sup></span>, <span>1.2056<sup>4</sup></span>, 0.0 + ' pips', -4.34 + ' %'),
   ];
 
+  // table state
   const [rows, setRows] = useState(originalrows)
+  const [tableCategories, setTableCategories] = useState(['Forex','Metals','Shares','Commodities','Cryptos','Energies','Indices'])
+  const [tableFilters, setTableFilters] = useState(['Majors','Minors','Exotics','All'])
   
   return (
       <div>
@@ -94,7 +99,7 @@ export default function Home(props) {
             </div>
           </div>
           <div className={`col-lg-7 col-12 ${styles.second_div_content}`}>
-              <CustomizedTables allrows={rows}  />
+              <CustomizedTables allrows={rows} categories={tableCategories} filters={tableFilters}  />
             <div className={styles.desc_mobile}>One of our biggest selling points at EverestCM is the pricing we give our traders. You’ll be hard-pressed to find better pricing at any other broker.</div>
           </div>
         </div>
