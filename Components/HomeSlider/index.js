@@ -63,7 +63,7 @@ function HomeSlider(props) {
 
                                 <div className={`${styles.slider_cards} ${styles.card_mobile}`}>
                                     <Slider {...trade_settings}>
-                                        { data && data.map((item, index) => {
+                                        { data ? data.map((item, index) => {
 
                                             const title = Object.keys(data[index])[0]
                                         
@@ -73,6 +73,13 @@ function HomeSlider(props) {
                                                 </div>
                                                 )
                                             })
+                                            :
+                                            <>
+                                            <TradeCards title={'EURUSD'} percentage={'+0.12%'} bid={'1.12527'} ask={'1.12529'} />
+                                            <TradeCards title={'EURUSD'} percentage={'+0.12%'} bid={'1.12527'} ask={'1.12527'} />
+                                            <TradeCards title={'EURUSD'} percentage={'+0.12%'} bid={'1.12527'} ask={'1.12527'} />
+                                            <TradeCards title={'EURUSD'} percentage={'+0.12%'} bid={'1.12527'} ask={'1.12527'} />
+                                            </>
                                         }
                                     </Slider>
                                 </div>
@@ -87,7 +94,7 @@ function HomeSlider(props) {
                             </div>
                             <div className="col-lg-6 col-12">
                                 <div className={` ${styles.slider_cards} ${styles.card_desktop}`}>
-                                { data && data.map((item, index) => {
+                                { data ? data.map((item, index) => {
 
                                     const title = Object.keys(data[index])[0]
                         
@@ -97,6 +104,13 @@ function HomeSlider(props) {
                                         </div>
                                         )
                                     })
+                                    :
+                                    <>
+                                    <TradeCards title={'EURUSD'} percentage={'+0.12%'} bid={'1.12527'} ask={'1.12529'} />
+                                    <TradeCards title={'EURUSD'} percentage={'+0.12%'} bid={'1.12527'} ask={'1.12527'} />
+                                    <TradeCards title={'EURUSD'} percentage={'+0.12%'} bid={'1.12527'} ask={'1.12527'} />
+                                    <TradeCards title={'EURUSD'} percentage={'+0.12%'} bid={'1.12527'} ask={'1.12527'} />
+                                    </>
                                 }
                                 </div>
                             </div>
