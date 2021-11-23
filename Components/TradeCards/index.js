@@ -74,7 +74,7 @@ function TradeCards(props) {
             </div>
 
             <div className={styles.second_row}>
-                <div style={{fontSize: '10px', marginBottom: '9px'}}>Spread {pips.toFixed(2)} pips</div>
+                <div style={{fontSize: '10px', marginBottom: '9px'}}>Spread {pips ? pips.toFixed(2): '0.00'} pips</div>
                 
                 <div className="d-flex">
                     <div className={styles.bid}>
