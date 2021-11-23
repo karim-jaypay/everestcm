@@ -128,7 +128,7 @@ function HomeSlider(props) {
                             </div>
                             <div className="col-lg-6">
                                 <div className={styles.slider_second_phone}>
-                                    <Image alt="Phone" src="/HomeSlider/slider-2-phone.svg" layout="fill" />
+                                    <Image alt="Phone" src="/HomeSlider/slider-2-phone.svg" layout="fill" priority={true} />
                                 </div>
                             </div>
 
@@ -158,7 +158,7 @@ function HomeSlider(props) {
                             </div>
                             <div className="col-lg-6">
                                 <div className={styles.slider_second_phone}>
-                                    <Image alt="Assets" src="/HomeSlider/slider-3-img.svg" layout="fill" />
+                                    <Image alt="Assets" src="/HomeSlider/slider-3-img.svg" layout="fill" priority={true} />
                                 </div>
                             </div>
 

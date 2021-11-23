@@ -397,7 +397,7 @@ export default function Home(props) {
             <div className="col-lg-6 col-12">
               <div className={styles.image_div}>
                 <div className={styles.seventh_image}>
-                  <Image alt="credit card" src="/HomePage/credit_card.svg" width={370} height={240} />
+                  <Image alt="credit card" src="/HomePage/credit_card.svg" width={370} height={240} priority={true} />
                 </div>
               </div>
             </div>
