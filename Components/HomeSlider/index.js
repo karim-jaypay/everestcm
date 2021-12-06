@@ -49,7 +49,7 @@ function HomeSlider(props) {
         
         for( let i = 0; i < 4; i++) {
             dummy.push(
-            <div className={styles.card_bg}>
+            <div key={i} className={styles.card_bg}>
                 <TradeCards title={'EURUSD'} percentage={'+0.12%'} bid={'1.12527'} ask={'1.12529'} />
             </div>)
         }

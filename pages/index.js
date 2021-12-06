@@ -9,8 +9,9 @@ import Tilt from 'react-vanilla-tilt'
 
 
 import styles from '../styles/Home/Home.module.scss'
+import { categories, filters } from '../variables'
 
-export default function Home(props) {
+export default function Home() {
 
   // states
   const [tradeUnits, setTradeUnits] = useState()
@@ -50,28 +51,6 @@ export default function Home(props) {
     return () => clearInterval(interval)
   }, [tradeUnits])
 
-  // table data
-  function createData(name, sell, buy, spread, change) {
-    return { name, sell, buy, spread, change };
-  }
-  
-  const originalrows = [
-    createData('EURUSD', <span className={styles.number_red} >1.2087<sup>4</sup></span>, <span>1.2056<sup>4</sup></span>, 0.0 + ' pips', -4.34 + ' %'),
-    createData('EURUSD', <span>1.2087<sup>4</sup></span>, <span className={styles.number_green} >1.2056<sup>4</sup></span>, 0.0 + ' pips', -4.34 + ' %'),
-    createData('EURUSD', <span className={styles.number_red}>1.2087<sup>4</sup></span>, <span>1.2056<sup>4</sup></span>, 0.0 + ' pips', -4.34 + ' %'),
-    createData('EURUSD', <span className={styles.number_green}>1.2087<sup>4</sup></span>, <span>1.2056<sup>4</sup></span>, 0.0 + ' pips', -4.34 + ' %'),
-    createData('EURUSD', <span>1.2087<sup>4</sup></span>, <span className={styles.number_red}>1.2056<sup>4</sup></span>, 0.0 + ' pips', -4.34 + ' %'),
-    createData('EURUSD', <span className={styles.number_green}>1.2087<sup>4</sup></span>, <span>1.2056<sup>4</sup></span>, 0.0 + ' pips', -4.34 + ' %'),
-    createData('EURUSD', <span>1.2087<sup>4</sup></span>, <span className={styles.number_red}>1.2056<sup>4</sup></span>, 0.0 + ' pips', -4.34 + ' %'),
-    createData('EURUSD', <span>1.2087<sup>4</sup></span>, <span className={styles.number_green}>1.2056<sup>4</sup></span>, 0.0 + ' pips', -4.34 + ' %'),
-    createData('EURUSD', <span className={styles.number_green}>1.2087<sup>4</sup></span>, <span>1.2056<sup>4</sup></span>, 0.0 + ' pips', -4.34 + ' %'),
-    createData('EURUSD', <span className={styles.number_green}>1.2087<sup>4</sup></span>, <span>1.2056<sup>4</sup></span>, 0.0 + ' pips', -4.34 + ' %'),
-  ];
-
-  // table state
-  const [rows, setRows] = useState(originalrows)
-  const [tableCategories, setTableCategories] = useState(['Forex','Metals','Shares','Commodities','Cryptos','Energies','Indices'])
-  const [tableFilters, setTableFilters] = useState(['Majors','Minors','Exotics','All'])
   
   return (
       <div>
@@ -99,7 +78,7 @@ export default function Home(props) {
             </div>
           </div>
           <div className={`col-lg-7 col-12 ${styles.second_div_content}`}>
-              <CustomizedTables allrows={rows} categories={tableCategories} filters={tableFilters}  />
+              <CustomizedTables categories={categories} filters={filters}  />
             <div className={styles.desc_mobile}>One of our biggest selling points at EverestCM is the pricing we give our traders. You’ll be hard-pressed to find better pricing at any other broker.</div>
           </div>
         </div>

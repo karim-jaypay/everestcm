@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 import Image from 'next/image'
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -38,10 +39,26 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 export default function CustomizedTables(props) {
   
   // get all props
-  const { allrows, categories, filters } = props
+  const { categories, filters } = props
+
+  // table data function
+  function createData(name, sell, buy, spread, change) {
+    return { name, sell, buy, spread, change };
+  }
 
   // states
-  const [rows, setRows] = useState(allrows)
+  const [rows, setRows] = useState([
+    createData('EURUSD', <span className={styles.number_red} >1.2087<sup>4</sup></span>, <span>1.2056<sup>4</sup></span>, 0.0 + ' pips', -4.34 + ' %'),
+    createData('EURUSD', <span>1.2087<sup>4</sup></span>, <span className={styles.number_green} >1.2056<sup>4</sup></span>, 0.0 + ' pips', -4.34 + ' %'),
+    createData('EURUSD', <span className={styles.number_red}>1.2087<sup>4</sup></span>, <span>1.2056<sup>4</sup></span>, 0.0 + ' pips', -4.34 + ' %'),
+    createData('EURUSD', <span className={styles.number_green}>1.2087<sup>4</sup></span>, <span>1.2056<sup>4</sup></span>, 0.0 + ' pips', -4.34 + ' %'),
+    createData('EURUSD', <span>1.2087<sup>4</sup></span>, <span className={styles.number_red}>1.2056<sup>4</sup></span>, 0.0 + ' pips', -4.34 + ' %'),
+    createData('EURUSD', <span className={styles.number_green}>1.2087<sup>4</sup></span>, <span>1.2056<sup>4</sup></span>, 0.0 + ' pips', -4.34 + ' %'),
+    createData('EURUSD', <span>1.2087<sup>4</sup></span>, <span className={styles.number_red}>1.2056<sup>4</sup></span>, 0.0 + ' pips', -4.34 + ' %'),
+    createData('EURUSD', <span>1.2087<sup>4</sup></span>, <span className={styles.number_green}>1.2056<sup>4</sup></span>, 0.0 + ' pips', -4.34 + ' %'),
+    createData('EURUSD', <span className={styles.number_green}>1.2087<sup>4</sup></span>, <span>1.2056<sup>4</sup></span>, 0.0 + ' pips', -4.34 + ' %'),
+    createData('EURUSD', <span className={styles.number_green}>1.2087<sup>4</sup></span>, <span>1.2056<sup>4</sup></span>, 0.0 + ' pips', -4.34 + ' %'),
+  ])
 
   const [searched, setSearched] = useState('')
 
@@ -49,11 +66,46 @@ export default function CustomizedTables(props) {
 
   const [filter, setFilter] = useState(filters[0])
 
+  // useEffect to fill data on category and filter change
+  useEffect(() => {
+
+    const fetchDataBy = async () => {
+      let titles = []
+      if(category === 'Forex') {
+        titles = ['EURUSD','GBPUSD','USDCHF','USDJPY','USDCNH','USDRUB','AUDUSD','NZDUSD','USDCAD','USDSEK']
+      } else if(category === 'Metals') {
+        titles = ['XAUEUR','XAUUSD','XAGUSD','XPTUSD','XAGEUR','XPDUSD']
+      } else if(category === 'Cryptos') {
+        titles = ['BTCUSD','ETCUSD','ETCBTC','ETHUSD','LTCUSD','XPRUSD']
+      } else if(category === 'Energies') {
+        titles = ['XBRUSD','XTIUSD']
+      } else if(category === 'Indices') {
+        titles = ['AUS200','UK100']
+      }
+      let temp = []
+      for( let i = 0; i < titles.length; i++) {
+        await axios.get(`http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/${titles[i]}/`).then((res) => {
+          const data = res.data[titles[i]]
+          temp.push(createData(titles[i], <span>{data.bid.toFixed(5)}</span>, <span>{data.ask.toFixed(5)}</span>,  0.0 + ' pips', -4.34 + ' %'))
+        });
+      }
+      setRows(temp)
+    }
+    // run function if user is not searching 
+    if(!searched) {
+      fetchDataBy()
+      // then run it every 3 seconds
+      const interval = setInterval(fetchDataBy, 3000)
+      return () => clearInterval(interval)
+    }
+    
+  }, [category, filter, searched])
+
   // search function
   const requestSearch = (e) => {
     const searched = e.target.value
     setSearched(e.target.value)
-    const filteredRows = allrows.filter((row) => {
+    const filteredRows = rows.filter((row) => {
       return row.name.toLowerCase().includes(searched.toLowerCase());
     });
     setRows(filteredRows);
@@ -78,7 +130,6 @@ export default function CustomizedTables(props) {
     setFilter(id)
   }
 
-
   return (
 
   <div className={styles.table_div}>
@@ -94,7 +145,7 @@ export default function CustomizedTables(props) {
           <div className={styles.table_titles_div}>
             { categories.map((item, index) => {
               return (
-                <a key={item} id={item} className={`${styles.table_titles} ${index === 0 && styles.table_title_active}`} onClick={(e) => targetCategory(e.target.id)}>{ item }</a>
+                <a key={item+index} id={item} className={`${styles.table_titles} ${index === 0 && styles.table_title_active}`} onClick={(e) => targetCategory(e.target.id)}>{ item }</a>
               )
             })}
           </div>
@@ -111,7 +162,7 @@ export default function CustomizedTables(props) {
       <div className={styles.table_filters}>
         { filters.map((item, index) => {
           return (
-          <a key={item} id={item} className={`${styles.table_filter} ${index === 0 && styles.table_filter_active}`} onClick={(e) => targetFilter(e.target.id)}>{ item }</a>
+          <a key={item+index} id={item} className={`${styles.table_filter} ${index === 0 && styles.table_filter_active}`} onClick={(e) => targetFilter(e.target.id)}>{ item }</a>
           )
         })}
         
@@ -124,8 +175,8 @@ export default function CustomizedTables(props) {
         <TableHead>
           <TableRow>
             <StyledTableCell className={styles.tableTitle} align="center">Trading Instrument</StyledTableCell>
+            <StyledTableCell className={styles.tableTitle} align="center">Buy</StyledTableCell>
             <StyledTableCell className={styles.tableTitle} align="center">Sell</StyledTableCell>
-            <StyledTableCell className={styles.tableTitle} align="center">BUY</StyledTableCell>
             <StyledTableCell className={styles.tableTitle} align="center">Spread</StyledTableCell>
             <StyledTableCell className={styles.tableTitle} align="center">% Change</StyledTableCell>
           </TableRow>

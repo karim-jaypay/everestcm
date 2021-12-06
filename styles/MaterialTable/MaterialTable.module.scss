@@ -84,6 +84,20 @@ $main-color: #23A5D6;
         outline: 0
       }
     }
+
+    .number_green, .number_red {
+      padding: 7px 14px;
+      border-radius: 5px;
+    }
+    
+    .number_red {
+      color: #C60021;
+      background: #F1D3D8;
+    }
+    .number_green {
+      background: #D7EEDE;
+      color: #60BB7D
+    }
 }
 
 .table_search_mobile {
