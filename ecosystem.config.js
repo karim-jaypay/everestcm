@@ -3,7 +3,7 @@ module.exports = {
         {
             name: 'everestcm_frontend',
             script: 'npm',
-            args: 'run dev'
+            args: 'run dev -- -p 3002'
         }
     ]
 }
