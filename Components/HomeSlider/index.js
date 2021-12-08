@@ -78,7 +78,7 @@ function HomeSlider(props) {
                                             const title = Object.keys(data[index])[0]
                                             const bid = item[title].bid
 
-                                            const old = midnightData[index].bid
+                                            const old = midnightData[index]?.bid
                                             const percentage = (((bid - old) / old) * 100).toFixed(2)
                                         
                                             return (
@@ -112,7 +112,7 @@ function HomeSlider(props) {
                                     const title = Object.keys(data[index])[0]
                                     const bid = item[title].bid
 
-                                    const old = midnightData[index].bid
+                                    const old = midnightData[index]?.bid
                                     const percentage = (((bid - old) / old) * 100).toFixed(2)
                         
                                     return (

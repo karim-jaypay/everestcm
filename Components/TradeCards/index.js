@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import axios from 'axios'
 
 import styles from '../../styles/HomeSlider/HomeSlider.module.scss'
 
@@ -70,7 +69,7 @@ function TradeCards(props) {
                 <div> { title } </div>
                 <div style={{marginLeft: 'auto', display: 'flex'}}>
                     <div className={percentage > 0 ? styles.arrow_up : styles.arrow_down}></div>
-                    <div style={{color: percentage > 0 ? '#60BB7D' : '#f00'}}>% { percentage }</div>
+                    <div style={{color: percentage > 0 ? '#60BB7D' : '#f00'}}>% { percentage > 0 ? '+' + percentage : percentage }</div>
                 </div>
             </div>
 
