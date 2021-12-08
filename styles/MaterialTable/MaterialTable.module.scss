@@ -107,6 +107,17 @@ $main-color: #23A5D6;
 display: flex;
 }
 
+.loading {
+  position: absolute;
+  top: 46%;
+  left: 46%
+}
+.loading_color {
+  background: linear-gradient(#23A5D6, #60BB7D);
+  height: 4rem !important;
+  width: 4rem !important
+}
+
 @media screen and (max-width: 1200px) {
     .table_filters {
         width: 100% !important;

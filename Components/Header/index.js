@@ -14,13 +14,13 @@ function Header() {
 
                 <ul className={styles.right}>
                     <li>
-                        <Link href="https://ascend-mu.everestcm.com/register/"  >
+                        <Link href="https://ascend.everestcm.com/login"  >
                             <a className={styles.button_live}> OPEN LIVE ACCOUNT </a>
                         </Link>
                     </li>
 
                     <li>
-                        <Link href="https://ascend-mu.everestcm.com/register/"  >
+                        <Link href="https://ascend.everestcm.com/login"  >
                             <a className={styles.button_demo}> OPEN DEMO ACCOUNT </a>
                         </Link>
                     </li>

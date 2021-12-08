@@ -41,6 +41,9 @@ export default function CustomizedTables(props) {
   // get all props
   const { categories, filters } = props
 
+  // loading state
+  const [loading, setLoading] = useState(false)
+
   // table data function
   function createData(name, sell, buy, spread, change) {
     return { name, sell, buy, spread, change };
@@ -83,16 +86,20 @@ export default function CustomizedTables(props) {
         titles = ['AUS200','UK100']
       }
       let temp = []
-      for( let i = 0; i < titles.length; i++) {
-        await axios.get(`http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/${titles[i]}/`).then((res) => {
-          const data = res.data[titles[i]]
-          temp.push(createData(titles[i], <span>{data.bid.toFixed(5)}</span>, <span>{data.ask.toFixed(5)}</span>,  0.0 + ' pips', -4.34 + ' %'))
-        });
+      if(category) {
+        for( let i = 0; i < titles.length; i++) {
+          await axios.get(`http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/${titles[i]}/`).then((res) => {
+            const data = res.data[titles[i]]
+            temp.push(createData(titles[i], <span>{data.bid.toFixed(5)}</span>, <span>{data.ask.toFixed(5)}</span>,  0.0 + ' pips', -4.34 + ' %'))
+          });
+        }
       }
       setRows(temp)
+      setLoading(false)
     }
     // run function if user is not searching 
     if(!searched) {
+      setLoading(true)
       fetchDataBy()
       // then run it every 3 seconds
       const interval = setInterval(fetchDataBy, 3000)
@@ -181,18 +188,23 @@ export default function CustomizedTables(props) {
             <StyledTableCell className={styles.tableTitle} align="center">% Change</StyledTableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
-          {rows.map((row, index) => (
-            <StyledTableRow key={row.name + index}>
-              <StyledTableCell component="th" scope="row" align="center">
-                {row.name}
-              </StyledTableCell>
-              <StyledTableCell align="center">{row.sell}</StyledTableCell>
-              <StyledTableCell align="center">{row.buy}</StyledTableCell>
-              <StyledTableCell align="center">{row.spread}</StyledTableCell>
-              <StyledTableCell align="center">{row.change}</StyledTableCell>
-            </StyledTableRow>
-          ))}
+        <TableBody style={{position: loading && 'relative', height: loading && '400px'}}>
+          { loading ?
+              <div className={styles.loading}>
+                <div className={`spinner-grow ${styles.loading_color}`} role="status"></div>
+              </div>
+            :
+            rows.map((row, index) => (
+              <StyledTableRow key={row.name + index}>
+                <StyledTableCell component="th" scope="row" align="center">
+                  {row.name}
+                </StyledTableCell>
+                <StyledTableCell align="center">{row.sell}</StyledTableCell>
+                <StyledTableCell align="center">{row.buy}</StyledTableCell>
+                <StyledTableCell align="center">{row.spread}</StyledTableCell>
+                <StyledTableCell align="center">{row.change}</StyledTableCell>
+              </StyledTableRow>
+            ))}
         </TableBody>
       </Table>
     </TableContainer>

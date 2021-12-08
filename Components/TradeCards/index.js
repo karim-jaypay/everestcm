@@ -80,14 +80,14 @@ function TradeCards(props) {
                     <div className={styles.bid}>
                         <div style={{fontSize: '10px', color: 'grey'}}>Bid</div>
                         <div style={{fontSize:'14px'}}>{bid_first}<span style={{fontSize: '20px'}}>{bid_second}</span><sup style={{fontSize: '14px'}}>{ typeof bid_third !==' undefined' ? bid_third : 0 }</sup></div>
-                        <Link href="https://ascend-mu.everestcm.com/register/" >
+                        <Link href="https://ascend.everestcm.com/login" >
                             <a className={styles.buy}>Buy</a>
                         </Link>
                     </div>
                     <div className={styles.bid}>
                         <div style={{fontSize: '10px', color: 'grey'}}>Ask</div>
                         <div style={{fontSize:'14px'}}>{ ask_first }<span style={{fontSize: '20px'}}>{ ask_second }</span><sup style={{fontSize: '14px'}}>{ ask_third }</sup></div>
-                        <Link href="https://ascend-mu.everestcm.com/register/" >
+                        <Link href="https://ascend.everestcm.com/login" >
                             <a className={styles.sell}>Sell</a>
                         </Link>
                     </div>

@@ -96,7 +96,7 @@ function HomeSlider(props) {
                                 </div>
 
                                 <div>
-                                    <CustomButton data='Start Trading' link="https://ascend-mu.everestcm.com/register/" /> 
+                                    <CustomButton data='Start Trading' link="https://ascend.everestcm.com/login" /> 
                                 </div>
                             </div>
                             <div className="col-lg-6 col-12">
@@ -141,7 +141,7 @@ function HomeSlider(props) {
                                 </div>
 
                                 <div>
-                                    <CustomButton data='Start Trading' link="https://ascend-mu.everestcm.com/register/" /> 
+                                    <CustomButton data='Start Trading' link="https://ascend.everestcm.com/login" /> 
                                 </div>
                             </div>
                             <div className="col-lg-6">
@@ -171,7 +171,7 @@ function HomeSlider(props) {
                                 </div>
 
                                 <div>
-                                    <CustomButton data='Start Trading' link="https://ascend-mu.everestcm.com/register/" /> 
+                                    <CustomButton data='Start Trading' link="https://ascend.everestcm.com/login" /> 
                                 </div>
                             </div>
                             <div className="col-lg-6">
