@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import axios from 'axios'
 
 import styles from '../../styles/HomeSlider/HomeSlider.module.scss'
 
 function TradeCards(props) {
 
-    const { image, title, percentage, bid, ask, } = props
+    const { title, percentage, bid, ask } = props
 
     let bid_first,
         bid_second,
@@ -49,8 +50,8 @@ function TradeCards(props) {
                     bid_third = '0'
                     ask_third = '0'
                 } else {
-                    bid_third = bid_third[bid_third.length - 1]
-                    ask_third = ask_third[ask_third.length - 1]
+                    bid_third = bid_third !== undefined ? bid_third[bid_third.length - 1] : 0
+                    ask_third = ask_third !== undefined ? ask_third[ask_third.length - 1] : 0
                 }
 
                
@@ -68,8 +69,8 @@ function TradeCards(props) {
                 </div>
                 <div> { title } </div>
                 <div style={{marginLeft: 'auto', display: 'flex'}}>
-                    <div className={styles.arrow_down}></div>
-                    <div style={{color:'#f00'}}>{ percentage }</div>
+                    <div className={percentage > 0 ? styles.arrow_up : styles.arrow_down}></div>
+                    <div style={{color: percentage > 0 ? '#60BB7D' : '#f00'}}>% { percentage }</div>
                 </div>
             </div>
 
@@ -79,7 +80,7 @@ function TradeCards(props) {
                 <div className="d-flex">
                     <div className={styles.bid}>
                         <div style={{fontSize: '10px', color: 'grey'}}>Bid</div>
-                        <div style={{fontSize:'14px'}}>{bid_first}<span style={{fontSize: '20px'}}>{bid_second}</span><sup style={{fontSize: '14px'}}>{ typeof bid_third !==' undefined' ? bid_third : 0 }</sup></div>
+                        <div style={{fontSize:'14px'}}>{bid_first}<span style={{fontSize: '20px'}}>{bid_second}</span><sup style={{fontSize: '14px'}}>{ bid_third }</sup></div>
                         <Link href="https://ascend.everestcm.com/login" >
                             <a className={styles.buy}>Buy</a>
                         </Link>

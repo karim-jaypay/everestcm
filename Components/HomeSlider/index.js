@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Slider from 'react-slick'
 import Image from 'next/image'
 
@@ -9,7 +9,7 @@ import TradeCards from '../TradeCards'
 
 function HomeSlider(props) {
 
-    const { data } = props
+    const { data, midnightData } = props
 
     const settings = {
         dots: true,
@@ -54,6 +54,7 @@ function HomeSlider(props) {
             </div>)
         }
     }
+    console.log(midnightData)
     
     return (
         <div>
@@ -75,16 +76,21 @@ function HomeSlider(props) {
                                         { data ? data.map((item, index) => {
 
                                             const title = Object.keys(data[index])[0]
+                                            const bid = item[title].bid
+
+                                            const old = midnightData[index].bid
+                                            const percentage = (((bid - old) / old) * 100).toFixed(2)
                                         
                                             return (
                                                 <div key={` ${title}_mobile `} className={styles.card_bg}>
-                                                <TradeCards title={title} percentage={'+0.12%'} bid={item[title].bid} ask={item[title].ask} />
+                                                <TradeCards title={title} percentage={percentage} bid={bid} ask={item[title].ask} />
                                                 </div>
                                                 )
                                             })
                                             :
                                             dummy.map((item, index) => {
                                                 return item
+
                                             })
                                             
                                         }
@@ -104,10 +110,14 @@ function HomeSlider(props) {
                                 { data ? data.map((item, index) => {
 
                                     const title = Object.keys(data[index])[0]
+                                    const bid = item[title].bid
+
+                                    const old = midnightData[index].bid
+                                    const percentage = (((bid - old) / old) * 100).toFixed(2)
                         
                                     return (
                                         <div key={` ${title}_desktop `} className={styles.card_bg}>
-                                        <TradeCards title={title} percentage={'+0.12%'} bid={item[title].bid} ask={item[title].ask}/>
+                                        <TradeCards title={title} percentage={percentage} bid={bid} ask={item[title].ask}/>
                                         </div>
                                         )
                                     })

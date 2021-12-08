@@ -89,8 +89,8 @@ export default function CustomizedTables(props) {
       if(category) {
         for( let i = 0; i < titles.length; i++) {
           await axios.get(`http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/${titles[i]}/`).then((res) => {
-            const data = res.data[titles[i]]
-            temp.push(createData(titles[i], <span>{data.bid.toFixed(5)}</span>, <span>{data.ask.toFixed(5)}</span>,  0.0 + ' pips', -4.34 + ' %'))
+            const Bdata = res.data[titles[i]]
+            temp.push(createData(titles[i], <span>{Bdata.bid.toFixed(5)}</span>, <span>{Bdata.ask.toFixed(5)}</span>,  0.0 + ' pips', -4.34 + ' %'))
           });
         }
       }

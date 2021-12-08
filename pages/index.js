@@ -20,23 +20,24 @@ export default function Home() {
   // ref to run fetchData function inside interval after first render
   const firstUpdate = useRef(true)
 
-  let data = []
+  let Alldata = []
+  let MidnightData = []
 
   // get trade quotes
   const fetchData = async () => {
-    await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/eurusd/').then((res) => {
-      data.push(res.data)
-    }); 
-    await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/usdjpy/').then((res) => {
-      data.push(res.data)
-    }); 
-    await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/gbpusd/').then((res) => {
-      data.push(res.data)
-    }); 
-    await axios.get('http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/xauusd/').then((res) => {
-      data.push(res.data)
-    }); 
-    setTradeUnits(data)
+    const titles = ['eurusd', 'usdjpy', 'gbpusd', 'xauusd']
+
+    for(let i = 0; i < titles.length; i++) {
+      await axios.get(`http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/${titles[i]}/`).then((res) => {
+        Alldata.push(res.data)
+      }); 
+      const { data: { data } } = await axios.get(`https://everestcmstrapi.jaypay.co.uk/api/quotes-defaults?filters[title][$eq]=${titles[i].toUpperCase()}`)
+        MidnightData.push(data[0].attributes)
+    }
+    setTradeUnits({
+      Alldata: Alldata,
+      MidnightData: MidnightData
+    })
   }
 
   useEffect(() => {
@@ -59,7 +60,7 @@ export default function Home() {
       // First section Slider
     }
       <section>
-        <HomeSlider data={tradeUnits} />
+        <HomeSlider data={tradeUnits?.Alldata} midnightData={tradeUnits?.MidnightData} />
       </section>
 
         <div className={`${styles.first_circle} ${styles.circle} container`}> 
