@@ -29,10 +29,10 @@ function TradeCards(props) {
         // if quote is eurusd or gbpusd
         if(title === 'EURUSD' || title === 'GBPUSD') {
             bid_second = bid_second.split('.')[1][2] + bid.toString().split('.')[1][3]
-            bid_third = bid_third[bid_third.length - 1]
+            bid_third = bid_third.split('.')[1][4] === undefined ? '0' : bid_third[bid_third.length - 1]
 
             ask_second = ask_second.split('.')[1][2] + ask.toString().split('.')[1][3]
-            ask_third = ask_third[ask_third.length - 1]
+            ask_third = ask_third.split('.')[1][4] === undefined ? '0' : ask_third[ask_third.length - 1]
 
         } else {
             bid_first = Math.floor(bid_first) + '.'
