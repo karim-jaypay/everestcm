@@ -88,7 +88,7 @@ export default function CustomizedTables(props) {
               info.title, 
               <span className={percentage > 0 ? styles.number_green : styles.number_red}>{parseFloat(info.bid.toFixed(5))}</span>, 
               <span className={ask_percentage > 0 ? styles.number_green : styles.number_red}>{parseFloat(info.ask.toFixed(5))}</span>, 
-              0.0 + ' pips', 
+              info.pips + ' pips', 
               <div className="ms-auto d-flex">
                     <div className={percentage > 0 ? styles.arrow_up : styles.arrow_down}></div>
                     <div style={{color: percentage > 0 ? '#60BB7D' : '#f00'}}>% { percentage > 0 ? '+' + percentage : percentage }</div>

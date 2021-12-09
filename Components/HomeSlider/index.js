@@ -84,7 +84,7 @@ function HomeSlider(props) {
                                         
                                             return (
                                                 <div key={` ${title}_mobile `} className={styles.card_bg}>
-                                                <TradeCards title={title} percentage={percentage} bid={bid} ask={info.ask} />
+                                                <TradeCards title={title} percentage={percentage} bid={bid} ask={info.ask} pips={info.pips} />
                                                 </div>
                                                 )
                                             })
@@ -120,7 +120,7 @@ function HomeSlider(props) {
                         
                                     return (
                                         <div key={` ${title}_desktop `} className={styles.card_bg}>
-                                        <TradeCards title={title} percentage={percentage} bid={bid} ask={info.ask}/>
+                                        <TradeCards title={title} percentage={percentage} bid={bid} ask={info.ask} pips={info.pips}/>
                                         </div>
                                         )
                                     })

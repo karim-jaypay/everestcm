@@ -6,15 +6,14 @@ import styles from '../../styles/HomeSlider/HomeSlider.module.scss'
 
 function TradeCards(props) {
 
-    const { title, percentage, bid, ask } = props
+    const { title, percentage, bid, ask, pips } = props
 
     let bid_first,
         bid_second,
         bid_third,
         ask_first,
         ask_second,
-        ask_third,
-        pips = (ask - bid) * 1000
+        ask_third
 
     if(bid) {
         
