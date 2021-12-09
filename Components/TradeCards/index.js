@@ -67,7 +67,7 @@ function TradeCards(props) {
                 <Image alt="currency" src={`/HomeSlider/${title}.svg`} width={30} height={30}/>
                 </div>
                 <div> { title } </div>
-                <div style={{marginLeft: 'auto', display: 'flex'}}>
+                <div className="ms-auto d-flex">
                     <div className={percentage > 0 ? styles.arrow_up : styles.arrow_down}></div>
                     <div style={{color: percentage > 0 ? '#60BB7D' : '#f00'}}>% { percentage > 0 ? '+' + percentage : percentage }</div>
                 </div>

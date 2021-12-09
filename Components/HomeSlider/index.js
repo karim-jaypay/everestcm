@@ -9,7 +9,7 @@ import TradeCards from '../TradeCards'
 
 function HomeSlider(props) {
 
-    const { data, midnightData } = props
+    const { data } = props
 
     const settings = {
         dots: true,
@@ -54,7 +54,6 @@ function HomeSlider(props) {
             </div>)
         }
     }
-    console.log(midnightData)
     
     return (
         <div>
@@ -75,15 +74,17 @@ function HomeSlider(props) {
                                     <Slider {...trade_settings}>
                                         { data ? data.map((item, index) => {
 
-                                            const title = Object.keys(data[index])[0]
-                                            const bid = item[title].bid
+                                            const info = item.attributes
 
-                                            const old = midnightData[index]?.bid
+                                            const title = info.title
+                                            const bid = info.bid
+
+                                            const old = info.oldbid
                                             const percentage = (((bid - old) / old) * 100).toFixed(2)
                                         
                                             return (
                                                 <div key={` ${title}_mobile `} className={styles.card_bg}>
-                                                <TradeCards title={title} percentage={percentage} bid={bid} ask={item[title].ask} />
+                                                <TradeCards title={title} percentage={percentage} bid={bid} ask={info.ask} />
                                                 </div>
                                                 )
                                             })
@@ -109,15 +110,17 @@ function HomeSlider(props) {
                                 <div className={` ${styles.slider_cards} ${styles.card_desktop}`}>
                                 { data ? data.map((item, index) => {
 
-                                    const title = Object.keys(data[index])[0]
-                                    const bid = item[title].bid
+                                    const info = item.attributes
 
-                                    const old = midnightData[index]?.bid
+                                    const title = info.title
+                                    const bid = info.bid
+
+                                    const old = info.oldbid
                                     const percentage = (((bid - old) / old) * 100).toFixed(2)
                         
                                     return (
                                         <div key={` ${title}_desktop `} className={styles.card_bg}>
-                                        <TradeCards title={title} percentage={percentage} bid={bid} ask={item[title].ask}/>
+                                        <TradeCards title={title} percentage={percentage} bid={bid} ask={info.ask}/>
                                         </div>
                                         )
                                     })

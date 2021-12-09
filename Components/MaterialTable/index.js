@@ -73,28 +73,29 @@ export default function CustomizedTables(props) {
   useEffect(() => {
 
     const fetchDataBy = async () => {
-      let titles = []
-      if(category === 'Forex') {
-        titles = ['EURUSD','GBPUSD','USDCHF','USDJPY','USDCNH','USDRUB','AUDUSD','NZDUSD','USDCAD','USDSEK']
-      } else if(category === 'Metals') {
-        titles = ['XAUEUR','XAUUSD','XAGUSD','XPTUSD','XAGEUR','XPDUSD']
-      } else if(category === 'Cryptos') {
-        titles = ['BTCUSD','ETCUSD','ETCBTC','ETHUSD','LTCUSD','XPRUSD']
-      } else if(category === 'Energies') {
-        titles = ['XBRUSD','XTIUSD']
-      } else if(category === 'Indices') {
-        titles = ['AUS200','UK100']
-      }
-      let temp = []
+
       if(category) {
-        for( let i = 0; i < titles.length; i++) {
-          await axios.get(`http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/${titles[i]}/`).then((res) => {
-            const Bdata = res.data[titles[i]]
-            temp.push(createData(titles[i], <span>{Bdata.bid.toFixed(5)}</span>, <span>{Bdata.ask.toFixed(5)}</span>,  0.0 + ' pips', -4.34 + ' %'))
-          });
-        }
+        let temp = []
+        const { data: { data }} = await axios.get(`https://everestcmstrapi.jaypay.co.uk/api/${category === 'Forex' ? 'forexes' : category}/`)
+        data.map((item, index) => {
+          const info = item.attributes
+          const old = info.oldbid
+          const old_ask = info.oldask
+          const percentage = (((info.bid - old) / old) * 100).toFixed(2)
+          const ask_percentage = (((info.ask - old_ask) / old_ask) * 100).toFixed(2)
+          temp.push(
+            createData(
+              info.title, 
+              <span className={percentage > 0 ? styles.number_green : styles.number_red}>{parseFloat(info.bid.toFixed(5))}</span>, 
+              <span className={ask_percentage > 0 ? styles.number_green : styles.number_red}>{parseFloat(info.ask.toFixed(5))}</span>, 
+              0.0 + ' pips', 
+              <div className="ms-auto d-flex">
+                    <div className={percentage > 0 ? styles.arrow_up : styles.arrow_down}></div>
+                    <div style={{color: percentage > 0 ? '#60BB7D' : '#f00'}}>% { percentage > 0 ? '+' + percentage : percentage }</div>
+              </div>
+            ))})
+        setRows(temp)
       }
-      setRows(temp)
       setLoading(false)
     }
     // run function if user is not searching 

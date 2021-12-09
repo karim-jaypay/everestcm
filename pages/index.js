@@ -20,24 +20,11 @@ export default function Home() {
   // ref to run fetchData function inside interval after first render
   const firstUpdate = useRef(true)
 
-  let Alldata = []
-  let MidnightData = []
-
   // get trade quotes
   const fetchData = async () => {
-    const titles = ['eurusd', 'usdjpy', 'gbpusd', 'xauusd']
 
-    for(let i = 0; i < titles.length; i++) {
-      await axios.get(`http://summit-lb-tf-1076725243.eu-west-1.elb.amazonaws.com/quotes/${titles[i]}/`).then((res) => {
-        Alldata.push(res.data)
-      }); 
-      const { data: { data } } = await axios.get(`https://everestcmstrapi.jaypay.co.uk/api/quotes-defaults?filters[title][$eq]=${titles[i].toUpperCase()}`)
-        MidnightData.push(data[0].attributes)
-    }
-    setTradeUnits({
-      Alldata: Alldata,
-      MidnightData: MidnightData
-    })
+    const { data: { data } } = await axios.get(`https://everestcmstrapi.jaypay.co.uk/api/trade-cards`) 
+    setTradeUnits(data)
   }
 
   useEffect(() => {
@@ -60,7 +47,7 @@ export default function Home() {
       // First section Slider
     }
       <section>
-        <HomeSlider data={tradeUnits?.Alldata} midnightData={tradeUnits?.MidnightData} />
+        <HomeSlider data={tradeUnits} />
       </section>
 
         <div className={`${styles.first_circle} ${styles.circle} container`}> 
