@@ -25,7 +25,8 @@
     .slider_second_phone {
         display: flex;
         justify-content: flex-end;
-        position: relative
+        position: relative;
+        height: 100%;
     }
     .slider_second_phone > span, .slider_second_phone > span > img {
         position: relative !important;
