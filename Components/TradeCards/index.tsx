@@ -66,7 +66,7 @@ function TradeCards(props: ITradeCard) {
         <div style={{ marginRight: "10px" }}>
           <Image
             alt="currency"
-            src={`/uploads/${title}.svg`}
+            src={image}
             width={30}
             height={30}
           />
