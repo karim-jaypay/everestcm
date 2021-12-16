@@ -6,7 +6,7 @@ import styles from "../../styles/HomeSlider/HomeSlider.module.scss";
 import { ITradeCard } from "../../interface";
 
 function TradeCards(props: ITradeCard) {
-  const { title, percentage, bid, ask, pips } = props;
+  const { title, percentage, bid, ask, pips, image } = props;
 
   let bid_first, bid_second, bid_third, ask_first, ask_second, ask_third;
 
@@ -66,7 +66,7 @@ function TradeCards(props: ITradeCard) {
         <div style={{ marginRight: "10px" }}>
           <Image
             alt="currency"
-            src={`/HomeSlider/${title}.svg`}
+            src={`/uploads/${title}.svg`}
             width={30}
             height={30}
           />

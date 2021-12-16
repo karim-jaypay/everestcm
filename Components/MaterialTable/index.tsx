@@ -14,6 +14,7 @@ import { grey } from "@mui/material/colors";
 import styles from "../../styles/MaterialTable/MaterialTable.module.scss";
 import { IMaterialTable } from "../../interface";
 import { filterTable, loadTableQuotes } from "../../redux/thunks/quotesThunk";
+import { public_url } from "../../variables";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -107,7 +108,7 @@ function CustomizedTables(props: IMaterialTable) {
         className={` ${styles.table_search_div} ${styles.table_search_mobile}`}
       >
         <div className={styles.table_search_icon}>
-          <Image alt="search" src="/search.svg" width={13} height={13} />
+          <Image alt="search" src={`${public_url}/uploads/search_c1268155f8.svg?updated_at=2021-12-16T11:31:28.223Z`} width={13} height={13} />
         </div>
         <input
           className={styles.table_search_input}
@@ -141,7 +142,7 @@ function CustomizedTables(props: IMaterialTable) {
             className={` ${styles.table_search_div} ${styles.table_search_desktop}`}
           >
             <div className={styles.table_search_icon}>
-              <Image alt="search" src="/search.svg" width={13} height={13} />
+              <Image alt="search" src={`/uploads/search_c1268155f8.svg?updated_at=2021-12-16T11:31:28.223Z`} width={13} height={13} />
             </div>
             <input
               className={styles.table_search_input}

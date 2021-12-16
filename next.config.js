@@ -2,7 +2,9 @@ module.exports = {
   reactStrictMode: true,
 
   images: {
-    domains: ['everestcmstrapi.jaypay.co.uk'],
+    //domains: ['everestcmstrapi.jaypay.co.uk'],
+    loader: 'imgix',
+    path: 'https://everestcmstrapi.jaypay.co.uk'
   },
   
   // For Subroutes in build folder

@@ -70,7 +70,7 @@ export default function Home({ content, slider }: IHome) {
       </section>
 
       <div className={`${styles.first_circle} ${styles.circle} container`}>
-        <Image alt="" src="/HomeSlider/circle.svg" width={105} height={105} />
+        <Image alt="circle" src={`/uploads/circle_791d922dc0.svg?updated_at=2021-12-16T11:26:02.706Z`} loader={myLoader} width={105} height={105} />
       </div>
 
       {
@@ -92,7 +92,7 @@ export default function Home({ content, slider }: IHome) {
       </section>
 
       <div className={`${styles.second_circle} ${styles.circle} container`}>
-        <Image alt="" src="/HomeSlider/circle.svg" width={105} height={105} />
+        <Image alt="circle" src={`/uploads/circle_791d922dc0.svg?updated_at=2021-12-16T11:26:02.706Z`} width={105} height={105} />
       </div>
 
       {
@@ -144,7 +144,7 @@ export default function Home({ content, slider }: IHome) {
       </section>
 
       <div className={`${styles.circle} container`}>
-        <Image alt="" src="/orange_circle.svg" width={105} height={105} />
+        <Image alt="circle" src={`/uploads/orange_circle_46eaf7efb2.svg?updated_at=2021-12-16T11:28:43.105Z`} width={105} height={105} />
       </div>
 
       {
@@ -197,7 +197,7 @@ export default function Home({ content, slider }: IHome) {
       </section>
 
       <div className={`${styles.first_circle} ${styles.circle} container`}>
-        <Image alt="" src="/HomeSlider/circle.svg" width={105} height={105} />
+        <Image alt="circle" src={`/uploads/circle_791d922dc0.svg?updated_at=2021-12-16T11:26:02.706Z`} width={105} height={105} />
       </div>
 
       {
@@ -254,7 +254,7 @@ export default function Home({ content, slider }: IHome) {
       </section>
 
       <div className={`${styles.blue_circle} ${styles.circle} container`}>
-        <Image alt="" src="/blue_circle.svg" width={105} height={105} />
+        <Image alt="circle" src={`/uploads/blue_circle_0a513abe36.svg?updated_at=2021-12-16T11:29:43.483Z`} width={105} height={105} />
       </div>
 
       {

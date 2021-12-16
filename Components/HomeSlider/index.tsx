@@ -62,6 +62,7 @@ function HomeSlider(props: SliderProps) {
             bid={1.12527}
             ask={1.12529}
             pips={0.2}
+            image={`/uploads/GBPUSD_bd77ebc95c.svg?updated_at=2021-12-16T11:45:32.942Z`}
           />
         </div>
       );
@@ -72,7 +73,7 @@ function HomeSlider(props: SliderProps) {
     <div>
       <Slider {...settings}>
         {content &&
-          content.map((slider, index) => {
+          content.map((slider:any, index:number) => {
             // slider data
             const title = slider.title;
             const subtitle = slider.subtitle;
@@ -101,7 +102,7 @@ function HomeSlider(props: SliderProps) {
                           >
                             <Slider {...trade_settings}>
                               {data
-                                ? data.map((item, index) => {
+                                ? data.map((item:any) => {
                                     const info = item.attributes;
 
                                     const title = info.title;
@@ -112,6 +113,8 @@ function HomeSlider(props: SliderProps) {
                                       ((bid - old) / old) *
                                       100
                                     ).toFixed(2))
+
+                                    const image = info.image.data.attributes.url
 
                                     return (
                                       <div
@@ -124,6 +127,7 @@ function HomeSlider(props: SliderProps) {
                                           bid={bid}
                                           ask={info.ask}
                                           pips={info.pips}
+                                          image={image}
                                         />
                                       </div>
                                     );
@@ -150,7 +154,7 @@ function HomeSlider(props: SliderProps) {
                             className={` ${styles.slider_cards} ${styles.card_desktop}`}
                           >
                             {data
-                              ? data.map((item, index) => {
+                              ? data.map((item:any) => {
                                   const info = item.attributes;
 
                                   const title = info.title;
@@ -161,6 +165,8 @@ function HomeSlider(props: SliderProps) {
                                     ((bid - old) / old) *
                                     100
                                   ).toFixed(2))
+
+                                  const image = info.image.data.attributes.url
 
                                   return (
                                     <div
@@ -173,6 +179,7 @@ function HomeSlider(props: SliderProps) {
                                         bid={bid}
                                         ask={info.ask}
                                         pips={info.pips}
+                                        image={image}
                                       />
                                     </div>
                                   );

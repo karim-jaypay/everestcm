@@ -17,7 +17,8 @@ export interface ITradeCard {
     percentage: number,
     bid: number,
     ask: number,
-    pips: number
+    pips: number,
+    image: any
 }
 
 // material table 
@@ -37,26 +38,5 @@ export interface SliderProps {
             pips: number
         }
     }],
-    content: [{
-        title: string,
-        subtitle: string,
-        button: {
-            title: string,
-            link: string
-        },
-        background: {
-            data: {
-                attributes: {
-                    url: string
-                }
-            }
-        },
-        image: {
-            data: {
-                attributes: {
-                    url: string
-                }
-            }
-        },
-    }]
+    content: any
 } 

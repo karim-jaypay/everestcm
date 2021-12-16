@@ -3,6 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 
 import styles from '../../styles/Footer/Footer.module.scss'
+import { public_url } from '../../variables'
 
 const Footer: NextPage = () => {
     return (
@@ -104,23 +105,23 @@ const Footer: NextPage = () => {
 
                 <div className={styles.socials_div}>
                     <div className={styles.logo}>
-                    <Image alt="EverestCM" src="/Footer/everestcm.svg" width={176} height={40} />
+                    <Image alt="EverestCM" src={`/uploads/everestcm_97315b83ab.svg?updated_at=2021-12-16T11:32:10.644Z`} width={176} height={40} />
                     </div>
                     <div className={styles.socials}>
                         <div className={styles.social_bg}>
-                            <Image className={styles.social} alt="facebook" src="/Footer/facebook.svg" width={15} height={15} />
+                            <Image className={styles.social} alt="facebook" src={`/uploads/facebook_0ccb18c971.svg?updated_at=2021-12-16T11:32:10.636Z`} width={15} height={15} />
                         </div>
                         <div className={styles.social_bg}>
-                            <Image className={styles.social} alt="instagram" src="/Footer/instagram.svg" width={15} height={15} />
+                            <Image className={styles.social} alt="instagram" src={`/uploads/instagram_9f487610a1.svg?updated_at=2021-12-16T11:32:10.638Z`} width={15} height={15} />
                         </div>
                         <div className={styles.social_bg}>
-                            <Image className={styles.social} alt="twitter" src="/Footer/twitter.svg" width={15} height={15} />
+                            <Image className={styles.social} alt="twitter" src={`/uploads/twitter_51a155062c.svg?updated_at=2021-12-16T11:32:10.646Z`} width={15} height={15} />
                         </div>
                         <div className={styles.social_bg}>
-                            <Image className={styles.social} alt="youtube" src="/Footer/youtube.svg" width={15} height={15} />
+                            <Image className={styles.social} alt="youtube" src={`/uploads/youtube_a171ff2fb6.svg?updated_at=2021-12-16T11:32:11.582Z`} width={15} height={15} />
                         </div>
                         <div className={styles.social_bg}>
-                            <Image className={styles.social} alt="linkedin" src="/Footer/linkedin.svg" width={15} height={15} />
+                            <Image className={styles.social} alt="linkedin" src={`/uploads/linkedin_6a0f7dd1c0.svg?updated_at=2021-12-16T11:32:10.641Z`} width={15} height={15} />
                         </div>
                     </div>
                 </div>
