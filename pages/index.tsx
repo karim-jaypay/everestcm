@@ -7,7 +7,7 @@ import parse from "html-react-parser";
 import HomeSlider from "../Components/HomeSlider";
 import CustomizedTables from "../Components/MaterialTable";
 import PhoneInput from "react-phone-input-2";
-import Tilt from "react-vanilla-tilt";
+import Tilt from "react-parallax-tilt";
 
 import styles from "../styles/Home/Home.module.scss";
 import { categories, filters, myLoader, public_url } from "../variables";
@@ -156,7 +156,7 @@ export default function Home({ content, slider }: IHome) {
           <div className={`text-center w-75 mx-auto ${styles.fourth_desc} `}>
             {fourth.subtitle}
           </div>
-          <Tilt className={styles.tilt} options={{ max: 15, glare: true }}>
+          <Tilt className={styles.tilt} tiltReverse={true} tiltMaxAngleX={5} tiltMaxAngleY={5}>
             <Image
               alt={fourth_image.data.attributes.name}
               src={fourth_image.data.attributes.url}
