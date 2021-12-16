@@ -27,7 +27,7 @@ const Header: NextPage = () => {
                     </li>
 
                     <li className={` d-flex ${styles.menu} `}>
-                        <Image alt="Menu" src='/Header/menuIcon.svg' width={22} height={10} />
+                        <Image alt="Menu" src={`/uploads/menu_Icon_c62746d378.svg?updated_at=2021-12-16T14:12:13.693Z`} width={22} height={10} />
                         <div className={styles.menu_icon}>Menu</div>
                     </li>
                 </ul>
