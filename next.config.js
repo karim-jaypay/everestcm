@@ -1,5 +1,9 @@
 module.exports = {
   reactStrictMode: true,
+
+  images: {
+    domains: ['everestcmstrapi.jaypay.co.uk'],
+  },
   
   // For Subroutes in build folder
   trailingSlash: true,

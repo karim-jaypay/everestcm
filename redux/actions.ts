@@ -1,0 +1,3 @@
+export const TRADING_CARDS = 'TRADING_CARDS'
+export const TABLE_DATA = 'TABLE_DATA'
+export const TABLE_FILTER = 'TABLE_FILTER'

@@ -1,10 +1,11 @@
+import type { NextPage } from 'next'
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
 import styles from '../../styles/Header/Header.module.scss'
 
-function Header() {
+const Header: NextPage = () => {
     return (
         <header className={` ${styles.container} container`}>
             <nav className="d-flex">
@@ -14,13 +15,13 @@ function Header() {
 
                 <ul className={styles.right}>
                     <li>
-                        <Link href="https://ascend.everestcm.com/login"  >
+                        <Link href="https://my.everestcm.com/login" passHref={true} >
                             <a className={styles.button_live}> OPEN LIVE ACCOUNT </a>
                         </Link>
                     </li>
 
                     <li>
-                        <Link href="https://ascend.everestcm.com/login"  >
+                        <Link href="https://my.everestcm.com/login" passHref={true}>
                             <a className={styles.button_demo}> OPEN DEMO ACCOUNT </a>
                         </Link>
                     </li>

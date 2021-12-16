@@ -4,11 +4,19 @@ import Layout from '../Components/Layout'
 import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'react-phone-input-2/lib/style.css'
+import React from 'react'
+import { Provider } from 'react-redux'
+import { store } from '../redux/store'
+import { createWrapper } from 'next-redux-wrapper'
 
-
-function MyApp({ Component, pageProps }) {
+type AppProps = {
+  Component: any,
+  pageProps: object
+}
+function MyApp({ Component, pageProps }: AppProps ) {
   
   return (
+    <Provider store={store}>
       <div>
         <Head>
           <title>EverestCM</title>
@@ -17,11 +25,15 @@ function MyApp({ Component, pageProps }) {
         </Head>
       <Layout>
         <div className="contents">
-        <Component {...pageProps} />
+          <Component {...pageProps} />
         </div>
       </Layout>
       </div>
+    </Provider>
   )
 }
 
-export default MyApp
+const makeStore = () => store
+const wrapper = createWrapper(makeStore)
+
+export default wrapper.withRedux(MyApp)

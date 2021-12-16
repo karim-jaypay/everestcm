@@ -1,7 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
+import { IButton } from '../interface'
 
-function CustomButton({ data, link }) {
+function CustomButton({ data, link }:IButton) {
+    
 
     const button_style = {
         background: '#23A5D6',
@@ -13,7 +15,7 @@ function CustomButton({ data, link }) {
     }
     return (
         <div>
-            <Link href={link ? link : ''} >
+            <Link href={link ? link : ''} passHref={true}>
                 <a style={button_style}>{ data }</a>
             </Link>
         </div>

@@ -1,9 +1,10 @@
+import type { NextPage } from 'next'
 import React from 'react'
 import Image from 'next/image'
 
 import styles from '../../styles/Footer/Footer.module.scss'
 
-function Footer() {
+const Footer: NextPage = () => {
     return (
         <div className={styles.bg}>
             <div className="container">
