@@ -58,9 +58,10 @@ function HomeSlider(props: SliderProps) {
         <div key={i} className={styles.card_bg}>
           <TradeCards
             title={"EURUSD"}
-            percentage={"+0.12%"}
-            bid={"1.12527"}
-            ask={"1.12529"}
+            percentage={0.12}
+            bid={1.12527}
+            ask={1.12529}
+            pips={0.2}
           />
         </div>
       );
@@ -107,10 +108,10 @@ function HomeSlider(props: SliderProps) {
                                     const bid = info.bid;
 
                                     const old = info.oldbid;
-                                    const percentage = (
+                                    const percentage = parseFloat((
                                       ((bid - old) / old) *
                                       100
-                                    ).toFixed(2);
+                                    ).toFixed(2))
 
                                     return (
                                       <div
@@ -156,10 +157,10 @@ function HomeSlider(props: SliderProps) {
                                   const bid = info.bid;
 
                                   const old = info.oldbid;
-                                  const percentage = (
+                                  const percentage = parseFloat((
                                     ((bid - old) / old) *
                                     100
-                                  ).toFixed(2);
+                                  ).toFixed(2))
 
                                   return (
                                     <div
