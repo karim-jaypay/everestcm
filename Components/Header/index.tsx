@@ -10,7 +10,7 @@ const Header: NextPage = () => {
         <header className={` ${styles.container} container`}>
             <nav className="d-flex">
                 <Link href="/" passHref={true}>
-                <Image alt="EverestCM" src='/Header/EverestCMLogo.svg' width={176} height={40} className={styles.header_logo} />
+                <Image alt="EverestCM" src={`/uploads/everestcm_97315b83ab.svg?updated_at=2021-12-16T11:32:10.644Z`} width={176} height={40} className={styles.header_logo} />
                 </Link>
 
                 <ul className={styles.right}>
