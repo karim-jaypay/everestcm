@@ -49,6 +49,9 @@ $main_color: #23A5D6;
                 margin-left: 20px;
                 text-align: center;
                 cursor: pointer;
+                > div {
+                    margin-top: 10px !important
+                }
             }
             .social_bg > span {
                 margin-top: 10px !important;

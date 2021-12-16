@@ -108,19 +108,19 @@ const Footer: NextPage = () => {
                     </div>
                     <div className={styles.socials}>
                         <div className={styles.social_bg}>
-                            <Image alt="facebook" src="/Footer/facebook.svg" width={15} height={15} />
+                            <Image className={styles.social} alt="facebook" src="/Footer/facebook.svg" width={15} height={15} />
                         </div>
                         <div className={styles.social_bg}>
-                            <Image alt="instagram" src="/Footer/instagram.svg" width={15} height={15} />
+                            <Image className={styles.social} alt="instagram" src="/Footer/instagram.svg" width={15} height={15} />
                         </div>
                         <div className={styles.social_bg}>
-                            <Image alt="twitter" src="/Footer/twitter.svg" width={15} height={15} />
+                            <Image className={styles.social} alt="twitter" src="/Footer/twitter.svg" width={15} height={15} />
                         </div>
                         <div className={styles.social_bg}>
-                            <Image alt="youtube" src="/Footer/youtube.svg" width={15} height={15} />
+                            <Image className={styles.social} alt="youtube" src="/Footer/youtube.svg" width={15} height={15} />
                         </div>
                         <div className={styles.social_bg}>
-                            <Image alt="linkedin" src="/Footer/linkedin.svg" width={15} height={15} />
+                            <Image className={styles.social} alt="linkedin" src="/Footer/linkedin.svg" width={15} height={15} />
                         </div>
                     </div>
                 </div>
